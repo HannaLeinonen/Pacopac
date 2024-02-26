@@ -1,16 +1,13 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-
-</script>
-
 <template>
-  <header>
-
-  </header>
-
-  <RouterView />
+  <div id="app">
+    <header>
+      <SearchComponent />
+    </header>
+    <RouterView />
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<script setup>
+import { RouterView } from 'vue-router'
+import SearchComponent from './components/SearchComponent.vue'
+</script>
