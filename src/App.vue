@@ -16,9 +16,17 @@ import FooterComponent from './components/Footer.vue'
     </div>
   </body>
 
+
 </template>
 
+
 <style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+
 body {
   height: 100%;
 }
@@ -29,5 +37,6 @@ main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
 }
 </style>
