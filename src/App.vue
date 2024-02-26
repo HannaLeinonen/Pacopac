@@ -1,16 +1,18 @@
-<script setup>
+<!-- <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-
-</script>
+</script> -->
 
 <template>
-  <header>
-
-  </header>
+  <header></header>
 
   <RouterView />
 </template>
 
-<style scoped>
-
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
 </style>
