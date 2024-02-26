@@ -1,5 +1,5 @@
 <script setup>
-/* import TestMenu from '@/components/TestMenu.vue' */
+import DropdownMenu from '@/components/DropdownMenu.vue'
 </script>
 
 <template>
@@ -59,7 +59,7 @@
     </button>
 
     <!-- DropDownMenu component -->
-    <!-- <TestMenu v-if="showMenu"/> -->
+    <DropdownMenu v-if="showMenu"/>
   </div>
 </template>
 

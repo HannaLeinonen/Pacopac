@@ -65,8 +65,8 @@ const toggleDropdown = () => {
   position: fixed;
   top: 100px;
   bottom: 0;
-  left: -100%;
-  transition: left 0.6s;
+  right: -100%;
+  transition: right 0.6s;
   background-color: #ffefe0;
   width: 390px;
   height: 531px;
@@ -74,10 +74,10 @@ const toggleDropdown = () => {
   z-index: 1000;
 }
 .dropdown-content.open {
-  left: 0;
+  right: 0;
 }
 .dropdown-toggle {
-  background-color: #ffefe0;
+  background-color: transparent;
   color: white;
   padding: 24px;
   font-size: 30px;

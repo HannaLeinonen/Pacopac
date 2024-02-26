@@ -21,15 +21,6 @@ import FooterComponent from './components/Footer.vue'
 
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow-x: hidden;
-
-body {
-  height: 100%;
-}
 main {
   flex: 1;
 }
