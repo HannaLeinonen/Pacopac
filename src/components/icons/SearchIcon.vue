@@ -1,6 +1,6 @@
 
 <script setup>
-    import TestMenu from '../TestMenu.vue';
+    import SearchComponent from '../SearchComponent.vue';
 </script>
 <template>
   <div class="searchIcon">
@@ -28,7 +28,7 @@
     </button>
 
     <!-- SearchBar component -->
-    <TestMenu v-if="showSearchBar"/>
+    <SearchComponent v-if="showSearchBar"/>
   </div>
 </template>
 
