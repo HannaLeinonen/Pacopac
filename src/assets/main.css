@@ -1,4 +1,3 @@
-
 * {
   /*Declare the colors on the website with variables */
   --darkGreen: #152618;
@@ -10,21 +9,25 @@
   --peach: #f9dac0;
 
   --red: #592020;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-body {
+/* body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-  }
-
+  } */
 
 .shoppingbagIcon,
 .menuIcon,
 .searchIcon,
 .brandName {
-    height: min-content; /* Setting height on icons so they are not taking unnecessary space below them */
+  height: min-content; /* Setting height on icons so they are not taking unnecessary space below them */
   padding-top: 0.4rem;
 }
 

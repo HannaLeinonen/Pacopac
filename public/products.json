@@ -5,7 +5,7 @@
     "price": 139.99,
     "rating": 5,
     "size": "Medium",
-    "imgUrl": "/backpackImg/fjallravenMedium.webp",
+    "imgUrl": "/backpackImg/fjallravenM.webp",
 
     "description": "Crafted from durable materials, it features a spacious main compartment perfect for storing essentials, from laptops and books to workout gear. Adjustable, padded shoulder straps ensure comfort during extended wear, while multiple pockets, including a front zip pocket and side mesh pockets, offer easy organization and access to smaller items. The iconic Adidas logo prominently displayed on the front adds a touch of athletic style, making it a versatile accessory for both sports enthusiasts and casual users alike. Whether heading to the gym, school, or on a weekend adventure, this backpack is designed to meet the needs of a dynamic lifestyle."
   },
@@ -15,7 +15,7 @@
     "price": 154.99,
     "rating": 4.5,
     "size": "Large",
-    "imgUrl": "/backpackImg/fjallravenLarge.webp",
+    "imgUrl": "/backpackImg/fjallravenL.webp",
 
     "description": "The backpack is equipped with multiple organizational pockets, including a dedicated laptop sleeve, side mesh pockets for water bottles, and smaller compartments for keys, wallets, and other essentials. Ergonomically designed, it comes with padded shoulder straps and a reinforced back panel for maximum comfort and support, even when fully loaded. The exterior is crafted from high-quality, water-resistant fabric, making it durable enough to withstand the rigors of daily use, travel, or outdoor adventures."
   },
@@ -35,7 +35,7 @@
     "price": 29.99,
     "rating": 3.9,
     "size": "Medium",
-    "imgUrl": "/backpackImg/hhMedium.webp",
+    "imgUrl": "/backpackImg/hhM.webp",
 
     "description": "Crafted from durable materials, it features a spacious main compartment perfect for storing essentials, from laptops and books to workout gear. Adjustable, padded shoulder straps ensure comfort during extended wear, while multiple pockets, including a front zip pocket and side mesh pockets, offer easy organization and access to smaller items. The iconic Adidas logo prominently displayed on the front adds a touch of athletic style, making it a versatile accessory for both sports enthusiasts and casual users alike. Whether heading to the gym, school, or on a weekend adventure, this backpack is designed to meet the needs of a dynamic lifestyle."
   },
@@ -45,7 +45,7 @@
     "price": 164,
     "rating": 4.3,
     "size": "Large",
-    "imgUrl": "/backpackImg/hhLarge.webp",
+    "imgUrl": "/backpackImg/hhL.webp",
 
     "description": "The backpack is equipped with multiple organizational pockets, including a dedicated laptop sleeve, side mesh pockets for water bottles, and smaller compartments for keys, wallets, and other essentials. Ergonomically designed, it comes with padded shoulder straps and a reinforced back panel for maximum comfort and support, even when fully loaded. The exterior is crafted from high-quality, water-resistant fabric, making it durable enough to withstand the rigors of daily use, travel, or outdoor adventures."
   },
@@ -65,7 +65,7 @@
     "price": 219.99,
     "rating": 4.8,
     "size": "Medium",
-    "imgUrl": "/backpackImg/dbMedium.webp",
+    "imgUrl": "/backpackImg/dbM.webp",
 
     "description": "Crafted from durable materials, it features a spacious main compartment perfect for storing essentials, from laptops and books to workout gear. Adjustable, padded shoulder straps ensure comfort during extended wear, while multiple pockets, including a front zip pocket and side mesh pockets, offer easy organization and access to smaller items. The iconic Adidas logo prominently displayed on the front adds a touch of athletic style, making it a versatile accessory for both sports enthusiasts and casual users alike. Whether heading to the gym, school, or on a weekend adventure, this backpack is designed to meet the needs of a dynamic lifestyle."
   },
@@ -75,7 +75,7 @@
     "price": 310,
     "rating": 5,
     "size": "Large",
-    "imgUrl": "/backpackImg/dbLarge.webp",
+    "imgUrl": "/backpackImg/dbL.webp",
 
     "description": "The backpack is equipped with multiple organizational pockets, including a dedicated laptop sleeve, side mesh pockets for water bottles, and smaller compartments for keys, wallets, and other essentials. Ergonomically designed, it comes with padded shoulder straps and a reinforced back panel for maximum comfort and support, even when fully loaded. The exterior is crafted from high-quality, water-resistant fabric, making it durable enough to withstand the rigors of daily use, travel, or outdoor adventures."
   },
@@ -95,7 +95,7 @@
     "price": 19.99,
     "rating": 4.5,
     "size": "Medium",
-    "imgUrl": "/backpackImg/adidasMedium.webp",
+    "imgUrl": "/backpackImg/adidasM.webp",
 
     "description": "Crafted from durable materials, it features a spacious main compartment perfect for storing essentials, from laptops and books to workout gear. Adjustable, padded shoulder straps ensure comfort during extended wear, while multiple pockets, including a front zip pocket and side mesh pockets, offer easy organization and access to smaller items. The iconic Adidas logo prominently displayed on the front adds a touch of athletic style, making it a versatile accessory for both sports enthusiasts and casual users alike. Whether heading to the gym, school, or on a weekend adventure, this backpack is designed to meet the needs of a dynamic lifestyle."
   },
@@ -105,7 +105,7 @@
     "price": 45.59,
     "rating": 4.1,
     "size": "Large",
-    "imgUrl": "/backpackImg/adidasLarge.webp",
+    "imgUrl": "/backpackImg/adidasL.webp",
 
     "description": "The backpack is equipped with multiple organizational pockets, including a dedicated laptop sleeve, side mesh pockets for water bottles, and smaller compartments for keys, wallets, and other essentials. Ergonomically designed, it comes with padded shoulder straps and a reinforced back panel for maximum comfort and support, even when fully loaded. The exterior is crafted from high-quality, water-resistant fabric, making it durable enough to withstand the rigors of daily use, travel, or outdoor adventures."
   },
@@ -125,7 +125,7 @@
     "price": 23.59,
     "rating": 3.9,
     "size": "Medium",
-    "imgUrl": "/backpackImg/nike-medium.jpg",
+    "imgUrl": "/backpackImg/nikeM.webp",
 
     "description": "Crafted from durable materials, it features a spacious main compartment perfect for storing essentials, from laptops and books to workout gear. Adjustable, padded shoulder straps ensure comfort during extended wear, while multiple pockets, including a front zip pocket and side mesh pockets, offer easy organization and access to smaller items. The iconic Adidas logo prominently displayed on the front adds a touch of athletic style, making it a versatile accessory for both sports enthusiasts and casual users alike. Whether heading to the gym, school, or on a weekend adventure, this backpack is designed to meet the needs of a dynamic lifestyle."
   },
@@ -135,7 +135,7 @@
     "price": 47,
     "rating": 4.1,
     "size": "Large",
-    "imgUrl": "/backpackImg/nikeLarge.webp",
+    "imgUrl": "/backpackImg/nikeL.webp",
 
     "description": "The backpack is equipped with multiple organizational pockets, including a dedicated laptop sleeve, side mesh pockets for water bottles, and smaller compartments for keys, wallets, and other essentials. Ergonomically designed, it comes with padded shoulder straps and a reinforced back panel for maximum comfort and support, even when fully loaded. The exterior is crafted from high-quality, water-resistant fabric, making it durable enough to withstand the rigors of daily use, travel, or outdoor adventures."
   },
