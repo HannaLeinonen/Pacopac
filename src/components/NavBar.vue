@@ -1,0 +1,61 @@
+<script setup>
+import ShoppingBagIcon from '@/components/icons/ShoppingBagIcon.vue'
+import HamburgerMenuIcon from  '@/components/icons/HamburgerMenuIcon.vue'
+import SearchIcon from '@/components/icons/SearchIcon.vue'
+</script>
+
+<template>
+  <header>
+    <nav>
+      <div class="navBar">
+        <!-- Searchbar component on click with $emit from child component-->
+        <SearchIcon />
+
+        <RouterLink to="/" class="brandName">
+            <h1>
+                <!-- Using span elements to emphasize the P's -->
+                <span class="largeLetter">P</span>aco<span class="largeLetter">P</span>ac
+            </h1>
+        </RouterLink>
+
+        <!-- RouterLink to ShoppingBag page -->
+        <ShoppingBagIcon />
+
+        <!-- DropDown menu on click with $emit from child component-->
+        <HamburgerMenuIcon  />
+
+      </div>
+    </nav>
+  </header>
+</template>
+
+<style scoped>
+    /* Importing the font KOULEN for the brandName */
+    @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+
+    .navBar{
+        display: flex;
+        margin: 0 0 auto;
+        padding: 0.5rem;
+        height: 15vh;
+        background-color: var(--darkGreen);
+    }
+    /* Styling the letters P in brandName
+    to be bigger then the rest of the letters */
+    .largeLetter {
+        font-size: 40px;
+    }
+    .brandName {
+        text-align:center ;
+        /* Setting flex-grow so that it
+        takes more place then the other components */
+        flex-grow: 1;
+        font-family: "Koulen", sans-serif;
+        text-decoration: none;
+        color: var(--peach);
+
+    }
+    .brandName h1 {
+        margin: 0;
+    }
+</style>

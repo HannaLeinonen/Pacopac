@@ -1,15 +1,13 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import DropdownMenu from './components/DropdownMenu.vue'
+import { RouterView } from 'vue-router'
+import NavBar from './components/NavBar.vue';
 import FooterComponent from './components/Footer.vue'
 </script>
 
 <template>
   <body>
     <div id="app">
-      <div>
-        <DropdownMenu />
-      </div>
+      <NavBar />
       <main>
         <RouterView />
       </main>
@@ -17,6 +15,7 @@ import FooterComponent from './components/Footer.vue'
       <FooterComponent />
     </div>
   </body>
+
 </template>
 
 <style scoped>
