@@ -8,7 +8,7 @@ import SearchIcon from '@/components/icons/SearchIcon.vue'
   <header>
     <nav>
       <div class="navBar">
-        <!-- Searchbar component on click with $emit from child component-->
+        <!-- Searchbar component onClick -->
         <SearchIcon />
 
         <RouterLink to="/" class="brandName">
@@ -21,7 +21,7 @@ import SearchIcon from '@/components/icons/SearchIcon.vue'
         <!-- RouterLink to ShoppingBag page -->
         <ShoppingBagIcon />
 
-        <!-- DropDown menu on click with $emit from child component-->
+        <!-- DropDown menu onClick -->
         <HamburgerMenuIcon  />
 
       </div>
