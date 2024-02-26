@@ -41,7 +41,7 @@ export default {
     },
     methods: {
         openSearchBar() {
-            this.showSearchBar = true
+            this.showSearchBar = !this.showSearchBar
         }
     }
 }
@@ -55,5 +55,6 @@ svg {
 button {
   background-color: var(--darkGreen);
   border: none;
+  cursor: pointer;
 }
 </style>
