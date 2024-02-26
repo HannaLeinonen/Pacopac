@@ -1,11 +1,7 @@
-<script setup>
-import DropdownMenu from '@/components/DropdownMenu.vue'
-</script>
-
 <template>
   <div class="menuIcon" >
     <!-- OnClick show DropDownMenu -->
-    <button @click="openMenu">
+    <button >
         <svg
       width="40px"
       height="40px"
@@ -57,14 +53,11 @@ import DropdownMenu from '@/components/DropdownMenu.vue'
       </g>
     </svg>
     </button>
-
-    <!-- DropDownMenu component -->
-    <DropdownMenu v-if="showMenu"/>
   </div>
 </template>
 
 <script>
-export default {
+/* export default {
     data() {
         return {
             showMenu: false
@@ -75,12 +68,13 @@ export default {
             this.showMenu = true
         }
     }
-}
+} */
 </script>
 
 <style scoped>
     button {
         background-color: var(--darkGreen);
         border: none;
+        cursor: pointer;
     }
 </style>

@@ -1,8 +1,16 @@
 <template>
   <div class="dropdown">
-    <button class="dropdown-toggle" @click="toggleDropdown">
+    <!-- OnClick show DropDownMenu -->
+    <!-- <HamburgerMenu  class="dropdown-toggle" @click="toggleDropdown"/> -->
+<!-- Show HamburgerMenu always -->
+    <HamburgerMenu v-show="!isOpen" class="dropdown-toggle" @click="toggleDropdown"/>
+    <!-- Show CloseMenu when isOpen is true -->
+    <CloseMenu v-show="isOpen" class="dropdown-toggle" @click="toggleDropdown"/>
+
+    <!-- <button class="dropdown-toggle" @click="toggleDropdown">
       <span>&#9776;</span>
-    </button>
+    </button> -->
+
     <div class="dropdown-content" :class="{ open: isOpen }">
       <div class="categories">
         <button id="size-button">MEDIUM BAGS</button>
@@ -45,6 +53,8 @@
 </template>
 
 <script setup>
+import HamburgerMenu from './icons/HamburgerMenuIcon.vue';
+import CloseMenu from './icons/CloseMenuIcon.vue';
 import { ref } from 'vue'
 
 const isOpen = ref(false)
@@ -55,10 +65,6 @@ const toggleDropdown = () => {
 </script>
 
 <style scoped>
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
 
 .dropdown-content {
   display: none;
@@ -77,12 +83,6 @@ const toggleDropdown = () => {
   right: 0;
 }
 .dropdown-toggle {
-  background-color: transparent;
-  color: white;
-  padding: 24px;
-  font-size: 30px;
-  border: none;
-  cursor: pointer;
   z-index: 2000;
   transition: ease 0.7s;
 }

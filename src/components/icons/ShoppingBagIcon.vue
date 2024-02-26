@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-    <RouterLink class="shoppingbagIcon" to="/">
+    <RouterLink class="shoppingbagIcon" to="/cart">
           <svg
             width="40px"
             height="40px"

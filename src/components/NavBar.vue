@@ -1,7 +1,7 @@
 <script setup>
 import ShoppingBagIcon from '@/components/icons/ShoppingBagIcon.vue'
-import HamburgerMenuIcon from  '@/components/icons/HamburgerMenuIcon.vue'
 import SearchIcon from '@/components/icons/SearchIcon.vue'
+import DropdownMenu from '@/components/DropdownMenu.vue';
 </script>
 
 <template>
@@ -21,8 +21,8 @@ import SearchIcon from '@/components/icons/SearchIcon.vue'
         <!-- RouterLink to ShoppingBag page -->
         <ShoppingBagIcon />
 
-        <!-- DropDown menu onClick -->
-        <HamburgerMenuIcon  />
+        <!-- DropDownMenu onClick -->
+        <DropdownMenu  />
 
       </div>
     </nav>
@@ -37,7 +37,7 @@ import SearchIcon from '@/components/icons/SearchIcon.vue'
         display: flex;
         margin: 0 0 auto;
         padding: 0.5rem;
-        height: 15vh;
+        height: 20vh;
         background-color: var(--darkGreen);
     }
     /* Styling the letters P in brandName
@@ -56,6 +56,9 @@ import SearchIcon from '@/components/icons/SearchIcon.vue'
 
     }
     .brandName h1 {
-        margin: 0;
+        margin: 0 auto;
+        width: fit-content;
     }
+
+
 </style>
