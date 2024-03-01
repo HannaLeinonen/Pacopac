@@ -41,6 +41,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  letter-spacing: 1px;
+  font-size: 14px;
 }
 
 .container {
@@ -85,5 +87,8 @@ img {
 
 #wallet {
   width: 30px;
+}
+#master {
+  margin-left: 40px;
 }
 </style>
