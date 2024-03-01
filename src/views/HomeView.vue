@@ -1,8 +1,8 @@
 <!-- Template -->
 <template>
   <div>
-        <BrandBanner />
-    </div>
+    <BrandBanner />
+  </div>
   <main>
     <!-- New arrivals -->
     <div class="new-arrivals">
@@ -55,12 +55,9 @@
 </template>
 <!-- End of Template -->
 
-
-
-
 <!-- Script -->
 <script setup>
-import BrandBanner from '@/components/BrandBanner.vue';
+import BrandBanner from '@/components/BrandBanner.vue'
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const slides = ref([
@@ -91,7 +88,9 @@ onMounted(() => {
 4. Slideshow
 5. Inspo div
  */
-
+* {
+  overflow-x: visible;
+}
 /* 1. Text style */
 h1 {
   letter-spacing: 2px;
@@ -147,7 +146,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('/backpackImg/nikeLarge.webp');
+    url('/backpackImg/nikeL.webp');
   background-position: bottom left;
   background-position: center;
   background-size: contain;
@@ -158,7 +157,7 @@ button:hover {
 }
 #sale2 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('/backpackImg/fjallravenLarge.webp');
+    url('/backpackImg/fjallravenXL.webp');
 }
 /* End of Sale Banner */
 
@@ -195,7 +194,7 @@ button:hover {
 }
 .slide h1 {
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -255,4 +254,3 @@ button:hover {
 /* End of Inspo div */
 </style>
 <!-- End of Style -->
-
