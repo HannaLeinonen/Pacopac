@@ -9,47 +9,69 @@
         placeholder="Search"
         class="search-bar"
       />
-      <button class="search-button" @click="handleSearch">Search</button>
+      <button class="search-button" @click="handleSearch">
+        <img src="@/assets/searchIcon.png" alt="search icon" />
+      </button>
     </div>
     <ul v-show="query && results.length" class="search-results">
-      <li v-for="(results, index) in results" :key="index" @click="navigate(results.path)">
-        {{ results.title }}
+      <li v-for="(product, index) in results" :key="index" @click="navigate(product)">
+        {{ product.brand }} - {{ product.id }}
       </li>
     </ul>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const query = ref('')
 const results = ref([])
 const router = useRouter()
 
+let products = []
+
+onMounted(async () => {
+  try {
+    const response = await fetch('products.json')
+    products = await response.json()
+  } catch (error) {
+    console.error('Error fetching products:', error)
+  }
+})
+
 const search = () => {
-  results.value
+  results.value = []
 
   if (query.value.length > 0) {
-    const pages = [
-      { title: 'home', path: '/' },
-      { title: 'about', path: '/about' }
-    ]
-
-    results.value = pages.filter((page) =>
-      page.title.toLowerCase().includes(query.value.toLocaleLowerCase())
+    results.value = products.filter(
+      (product) =>
+        product.id.toString().includes(query.value) ||
+        product.brand.toLowerCase().includes(query.value.toLowerCase())
     )
   }
 }
 
-const navigate = (path) => {
-  router.push(path)
+const navigate = (product) => {
+  router.push(`/backpacks/${product.brand}/${product.id}`)
 }
 
 const handleSearch = () => {
   search()
   if (results.value.length > 0) {
-    navigate(results.value[0].path)
+    const product = results.value[0]
+    if (results.value.length === 1) {
+      router.push(`/product/${product.brand}/${product.id}`)
+    } else {
+      const isBrand = products.some(
+        (product) => product.brand.toLowerCase() === query.value.toLowerCase()
+      )
+      if (isBrand) {
+        router.push(`/backpacks/${query.value}`)
+      } else {
+        router.push(`/search/${query.value}`)
+      }
+    }
   }
 }
 </script>
@@ -66,7 +88,7 @@ const handleSearch = () => {
 .search-bar {
   width: 100%;
   height: 36px;
-  border: 2px solid;
+  border: 1px solid;
   border-radius: 5px;
   font-size: 22px;
 }
@@ -86,7 +108,7 @@ const handleSearch = () => {
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: #fff;
+  background-color: white;
   border: 1px solid black;
   border-top: none;
   list-style-type: none;
@@ -104,10 +126,10 @@ const handleSearch = () => {
   background-color: #f0f0f0;
 }
 
-.search-button {
+/* .search-button {
   display: none;
 }
-
+ */
 @media screen and (min-width: 770px) {
   .search-bar {
     width: 215px;
@@ -115,10 +137,10 @@ const handleSearch = () => {
     border-radius: 5px 0 0 5px;
   }
 
-  .search-button {
+  /*   .search-button {
     display: inline-block;
   }
-
+ */
   .search-results {
     width: 215px;
   }
