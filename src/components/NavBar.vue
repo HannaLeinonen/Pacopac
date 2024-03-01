@@ -1,5 +1,4 @@
 <script setup>
-import ShoppingBagIcon from '@/components/icons/ShoppingBagIcon.vue'
 import SearchIcon from '@/components/icons/SearchIcon.vue'
 import DropdownMenu from '@/components/DropdownMenu.vue'
 import ShoppingCartComponent from './ShoppingCartComponent.vue'
@@ -57,5 +56,6 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
 .brandName h1 {
   margin: 0 auto;
   width: fit-content;
+  padding: 0;
 }
 </style>
