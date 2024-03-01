@@ -32,7 +32,9 @@ export default {
   },
   methods: {
     goToProduct() {
-      this.$router.push('/product')
+      if (this.id) {
+        this.$router.push({ name: 'product', params: { productId: this.id } })
+      }
     }
   }
 }
@@ -92,6 +94,7 @@ export default {
   height: 2rem;
   font-size: 1.5rem;
   margin: 0.5rem 1rem 0 0;
+  cursor: pointer;
 }
 .card-text button:active {
   background-color: rgb(223, 223, 223);

@@ -1,8 +1,13 @@
 <template>
+  <p>
+    <a href="/">Home</a>
+    /Backpacks
+  </p>
   <div class="productCards">
     <ProductCard
       v-for="product in products"
       :key="product.id"
+      :id="product.id"
       :brand="product.brand"
       :rating="product.rating"
       :price="product.price"
