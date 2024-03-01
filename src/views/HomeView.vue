@@ -1,12 +1,21 @@
+<!-- Template -->
 <template>
   <!-- BRANDBANNER HERE -->
   <main>
-    <div class="new-arrivals"><h1>NEW ARRIVALS</h1></div>
+    <!-- New arrivals -->
+    <div class="new-arrivals">
+      <h1>NEW ARRIVALS</h1>
+      <button>SHOP NOW</button>
+    </div>
+    <!-- End of New arrivals -->
+    <!-- Sale banner 1 -->
     <div class="sale-banner">
       <h1 id="sale">SALE</h1>
       <h1 id="sale">SALE</h1>
       <h1 id="sale">SALE</h1>
     </div>
+    <!-- End of Sale banner 1 -->
+    <!-- Hero Slide -->
     <div class="hero-products">
       <div id="slideshow">
         <div
@@ -20,15 +29,18 @@
           }"
         >
           <h1>{{ slide.title }}</h1>
-          <!-- <img :src="slide.image" :alt="'Slide ' + (index + 1)" /> -->
         </div>
       </div>
     </div>
+    <!-- End of Hero Slide -->
+    <!-- Sale banner 2 -->
     <div class="sale-banner" id="sale2">
       <h1 id="sale">SALE</h1>
       <h1 id="sale">SALE</h1>
       <h1 id="sale">SALE</h1>
     </div>
+    <!-- End of Sale banner 2 -->
+    <!-- Inspo div -->
     <div class="inspo-div">
       <h1>
         "Fuel your wanderlust <br />
@@ -36,8 +48,12 @@
         Where will you go next?"
       </h1>
     </div>
+    <!-- End of Inspo div -->
   </main>
 </template>
+<!-- End of Template -->
+
+<!-- Script -->
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
@@ -59,19 +75,34 @@ onMounted(() => {
   })
 })
 </script>
+<!--  End of Script -->
+<!-- Style -->
 <style scoped>
+/* Directions
+1. Text style
+2. New arrivals section
+3. Sale Banner
+4. Slideshow
+5. Inspo div
+ */
+
+/* 1. Text style */
 h1 {
   letter-spacing: 2px;
+  text-shadow: 5px 5px 5px black;
 }
 #sale {
   margin: 100px;
   transition: ease, 0.7;
   font-size: 80px;
 }
+/* End of text style */
 
+/* 2. New arrivals section */
 .new-arrivals {
   color: white;
   display: flex;
+  flex-direction: column;
   height: 282px;
   text-align: center;
   justify-content: center;
@@ -82,6 +113,26 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
 }
+button {
+  background-color: #d9a87e;
+  border: none;
+  border-radius: 10px;
+  height: 43px;
+  width: 280px;
+  transition: ease 0.6s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Koulen', sans-serif;
+  font-size: larger;
+}
+button:hover {
+  background-color: #ffc48d;
+}
+
+/* End of New arrivals section */
+
+/* 3. Sale Banner */
 .sale-banner {
   color: #ff0000;
   display: flex;
@@ -103,7 +154,9 @@ h1 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url('/backpackImg/fjallravenLarge.webp');
 }
-/* SlideShow */
+/* End of Sale Banner */
+
+/* 4. SlideShow */
 .hero-products {
   color: white;
   font-size: 30px;
@@ -142,6 +195,8 @@ h1 {
   z-index: 2;
 }
 /* End of Slide */
+
+/* 5. Inspo div */
 .inspo-div {
   position: relative;
   height: 400px;
@@ -190,4 +245,7 @@ h1 {
   color: white;
   margin: 0;
 }
+
+/* End of Inspo div */
 </style>
+<!-- End of Style -->

@@ -19,7 +19,7 @@
       </div>
 
       <div class="products">
-        <a href="#" id="home">
+        <a href="/" id="home">
           <div class="product-image">HOME</div>
         </a>
 
@@ -67,6 +67,7 @@ const toggleDropdown = () => {
 <style scoped>
 .dropdown-content {
   display: none;
+  text-shadow: 5px 5px 5px black;
   position: absolute;
   top: 100px;
   bottom: 0;
@@ -142,8 +143,9 @@ button {
   cursor: pointer;
   transition: ease-in-out 0.7s;
   background-position: bottom left;
-  border: 2px solid black;
-  background-image: url('/backpackImg/nikeLarge.webp');
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url('/backpackImg/nikeLarge.webp');
   background-position: center;
   background-size: 50%;
   letter-spacing: 2px;
@@ -160,7 +162,7 @@ button {
   margin: 0;
   padding: 0;
   transition: ease-in-out 0.5s;
-  border: black 2px solid;
+
   border-radius: 10px;
 }
 .product-image:hover {
