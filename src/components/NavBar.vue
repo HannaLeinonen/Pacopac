@@ -40,7 +40,7 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
   display: flex;
   margin: 0 0 auto;
   padding: 0.5rem;
-  height: 67px;
+  height: 6rem;
   background-color: var(--darkGreen);
 }
 /* Styling the letters P in brandName
