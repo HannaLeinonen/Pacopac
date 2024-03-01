@@ -1,6 +1,8 @@
 <!-- Template -->
 <template>
-  <!-- BRANDBANNER HERE -->
+  <div>
+        <BrandBanner />
+    </div>
   <main>
     <!-- New arrivals -->
     <div class="new-arrivals">
@@ -53,8 +55,12 @@
 </template>
 <!-- End of Template -->
 
+
+
+
 <!-- Script -->
 <script setup>
+import BrandBanner from '@/components/BrandBanner.vue';
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const slides = ref([
@@ -249,3 +255,4 @@ button:hover {
 /* End of Inspo div */
 </style>
 <!-- End of Style -->
+
