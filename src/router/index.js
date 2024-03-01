@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import BackpacksView from '../views/BackpacksView.vue'
+import PaymentViewVue from '@/views/PaymentView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,6 +17,16 @@ const router = createRouter({
       component: BackpacksView
     },
     {
+      path: '/payment',
+      name: 'payment',
+      component: PaymentViewVue
+    },
+    {
+      path: '/product/:productId',
+      name: 'product',
+      component: () => import('../views/ProductView.vue')
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
@@ -27,11 +38,6 @@ const router = createRouter({
       path: '/faq',
       name: 'faq',
       component: () => import('../views/AboutFaqView.vue')
-    },
-    {
-      path: '/cart',
-      name: 'cart',
-      component: () => import('../views/ShoppingCartView.vue')
     }
   ]
 })
