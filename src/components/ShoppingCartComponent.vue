@@ -95,6 +95,9 @@ export default {
 
 <style scoped>
 /* Dropdown */
+* {
+  overflow-x: visible;
+}
 .dropdown-content {
   display: none;
   position: absolute;
@@ -166,6 +169,7 @@ export default {
   width: 89px;
   border: 1px solid #000;
   border-radius: 10px;
+  overflow: none;
 }
 /* End of Wrappers */
 /* Img */
