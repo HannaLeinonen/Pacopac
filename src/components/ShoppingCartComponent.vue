@@ -1,42 +1,53 @@
 <template>
-  <p><a href="/">home</a>/cart</p>
-  <div class="product-wrapper">
-    <div class="cart-items">
-      <div v-for="item in cart" :key="item.id" class="cart-item">
-        <button class="increase-decrease-button" @click="removeItem(item.id)">Remove ✕</button>
+  <div class="dropdown">
+    <ShoppingBagIcon v-show="!isOpen" class="dropdown-toggle" @click="toggleDropdown" />
+    <!-- Show CloseMenu when isOpen is true -->
+    <CloseMenu v-show="isOpen" class="dropdown-toggle" @click="toggleDropdown" />
+    <div class="dropdown-content" :class="{ open: isOpen }">
+      <div class="product-wrapper">
+        <div class="cart-items">
+          <div v-for="item in cart" :key="item.id" class="cart-item">
+            <button class="increase-decrease-button" @click="removeItem(item.id)">Remove ✕</button>
 
-        <h3>{{ item.name }}</h3>
-        <div class="increase-decrease">
-          <button class="increase-decrease-button" @click="incrementItemQuantity(item.id)">
-            +
-          </button>
-          <p>{{ item.quantity }}</p>
-          <button
-            class="increase-decrease-button"
-            @click="decrementItemQuantity(item.id)"
-            :disabled="item.quantity <= 1"
-          >
-            -
-          </button>
+            <h3>{{ item.name }}</h3>
+            <div class="increase-decrease">
+              <button class="increase-decrease-button" @click="incrementItemQuantity(item.id)">
+                +
+              </button>
+              <p>{{ item.quantity }}</p>
+              <button
+                class="increase-decrease-button"
+                @click="decrementItemQuantity(item.id)"
+                :disabled="item.quantity <= 1"
+              >
+                -
+              </button>
+            </div>
+            <h3>${{ item.price }}</h3>
+          </div>
         </div>
-        <h3>${{ item.price }}</h3>
+      </div>
+      <div class="text-wrapper">
+        <h3>Total cost : ${{ totalCost }}</h3>
+        <h4>Shippment added in checkout</h4>
+      </div>
+      <div class="checkout-button">
+        <button><h3>CHECKOUT</h3></button>
       </div>
     </div>
   </div>
-  <div class="text-wrapper">
-    <h3>Total cost : ${{ totalCost }}</h3>
-    <h4>Shippment added in checkout</h4>
-  </div>
-  <div class="checkout-button">
-    <button><h3>CHECKOUT</h3></button>
-  </div>
-
-  <div class="cart-wrapper">
-    <img src="/imgs/visa.png" alt="visa" />
-    <img src="/imgs/swish.png" alt="swish" />
-    <img src="/imgs/master.png" alt="master" />
-  </div>
 </template>
+
+<script setup>
+import ShoppingBagIcon from './icons/ShoppingBagIcon.vue'
+import CloseMenu from './icons/CloseMenuIcon.vue'
+import { ref } from 'vue'
+const isOpen = ref(false)
+
+const toggleDropdown = () => {
+  isOpen.value = !isOpen.value
+}
+</script>
 
 <script>
 export default {
@@ -83,6 +94,34 @@ export default {
 </script>
 
 <style scoped>
+/* Dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100px;
+  bottom: 0;
+  right: -100%;
+  transition: ease-in-out right 0.6s;
+  background-color: #ffefe0;
+  width: 390px;
+  height: 600px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+.dropdown-content.open {
+  right: 0;
+}
+.dropdown-toggle {
+  z-index: 2000;
+}
+
+.dropdown-content {
+  display: block;
+}
+/* End of Dropdown */
+
 /* Wrappers */
 
 .cart-item {
@@ -90,10 +129,11 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 20px; /* Adjust padding to your preference */
-  margin-bottom: 20px; /* This adds space between each card */
+  padding: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 390px;
+  width: 300px;
 }
 .product-wrapper {
   display: flex;
@@ -115,6 +155,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
 .increase-decrease {
   flex-direction: row;
