@@ -1,5 +1,5 @@
 <template>
-  <div class="product-card">
+  <div class="product-card" @click="goToProduct()">
     <img class="card-img" :src="imgUrl" />
     <div class="title">
       <h4>{{ brand }}</h4>
@@ -23,11 +23,19 @@
 <script>
 export default {
   props: {
+    id: Number,
     imgUrl: String,
     brand: String,
     rating: Number,
     size: String,
     price: Number
+  },
+  methods: {
+    goToProduct() {
+      if (this.id) {
+        this.$router.push({ name: 'product', params: { productId: this.id } })
+      }
+    }
   }
 }
 </script>
@@ -40,6 +48,7 @@ export default {
   margin: 0.5rem;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.364);
   height: auto;
+  background-color: white;
 }
 #logo img {
   height: 2rem;
@@ -53,13 +62,14 @@ export default {
 #size {
   font-size: small;
   padding-left: 0.5rem;
+  margin: 0;
 }
 .colors button {
   border-radius: 50%;
-  height: 10px;
-  width: 10px;
+  height: 12px;
+  width: 12px;
   border: none;
-  margin: 0.2rem 0 0 0.5rem;
+  margin: 0 0 0 0.5rem;
 }
 .title {
   display: flex;
@@ -67,7 +77,9 @@ export default {
   align-items: center;
   padding-right: 1rem;
 }
-
+.title p {
+  font-weight: 500;
+}
 .product-card h4 {
   font-size: 1.1rem;
   margin: 0.5rem 0 0.2rem 0.5rem;
@@ -82,6 +94,11 @@ export default {
   height: 2rem;
   font-size: 1.5rem;
   margin: 0.5rem 1rem 0 0;
+  cursor: pointer;
+}
+.card-text button:active {
+  background-color: rgb(223, 223, 223);
+  color: black;
 }
 .card-text {
   display: flex;

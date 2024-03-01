@@ -41,13 +41,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 15px 0 0 15px;
   letter-spacing: 1px;
   font-size: 14px;
-}
 
-.container {
-  margin: 0;
-  padding: 0 15px;
 }
 
 .row {

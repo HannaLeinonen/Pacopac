@@ -16,6 +16,11 @@ const router = createRouter({
       component: BackpacksView
     },
     {
+      path: '/product/:productId',
+      name: 'product',
+      component: () => import('../views/ProductView.vue')
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
