@@ -32,11 +32,14 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
 /* Importing the font KOULEN for the brandName */
 @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
 
+* {
+  overflow-x: visible;
+}
 .navBar {
   display: flex;
   margin: 0 0 auto;
   padding: 0.5rem;
-  height: 67px;
+  height: 6rem;
   background-color: var(--darkGreen);
 }
 /* Styling the letters P in brandName

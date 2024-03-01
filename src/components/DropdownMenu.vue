@@ -65,6 +65,9 @@ const toggleDropdown = () => {
 </script>
 
 <style scoped>
+* {
+  overflow-x: visible;
+}
 .dropdown-content {
   display: none;
   text-shadow: 5px 5px 5px black;
@@ -145,7 +148,7 @@ button {
   background-position: bottom left;
 
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url('/backpackImg/nikeLarge.webp');
+    url('/backpackImg/nikeL.webp');
   background-position: center;
   background-size: 50%;
   letter-spacing: 2px;
@@ -184,7 +187,7 @@ button {
 }
 #nike {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('/backpackImg/nikeLarge.webp');
+    url('/backpackImg/nikeM.webp');
   background-repeat: no-repeat;
   background-size: 100%;
   border-radius: 10px;
@@ -196,7 +199,7 @@ button {
 }
 #adidas {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('/backpackImg/adidasMedium.webp');
+    url('/backpackImg/adidasL.webp');
   background-repeat: no-repeat;
   background-size: 100%;
   border-radius: 10px;
@@ -208,7 +211,7 @@ button {
 }
 #douche {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('/backpackImg/dbMedium.webp');
+    url('/backpackImg/dbL.webp');
   background-repeat: no-repeat;
   background-size: 100%;
   border-radius: 10px;
@@ -232,7 +235,7 @@ button {
 }
 #fjell {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('/backpackImg/fjallravenLarge.webp');
+    url('/backpackImg/fjallravenL.webp');
   background-repeat: no-repeat;
   background-size: 100%;
   border-radius: 10px;
