@@ -126,10 +126,10 @@ const handleSearch = () => {
   background-color: #f0f0f0;
 }
 
-/* .search-button {
+.search-button {
   display: none;
 }
- */
+
 @media screen and (min-width: 770px) {
   .search-bar {
     width: 215px;

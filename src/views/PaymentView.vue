@@ -1,13 +1,11 @@
 <script setup>
 import PaymentMethods from '@/components/PaymentMethods.vue';
+import BreadCrumbs from '@/components/BreadCrumb.vue'
 </script>
 
 <template>
-    <div class="linkBreadcrumb">
-        <a href="/">home</a>
-        <a href="/cart">/cart</a>
-        <a href="/payment"><strong>/payment</strong></a>
-    </div>
+    <!-- Breadcrumbs for user availability -->
+    <BreadCrumbs :crumbs="breadcrumbs"/>
     <div class="container">
         <h3>Choose payment method</h3>
 
@@ -18,19 +16,30 @@ import PaymentMethods from '@/components/PaymentMethods.vue';
     </div>
 </template>
 
+<script>
+export default {
+
+  data() {
+    return {
+      breadcrumbs: [
+        { label: 'Home', path: '/' }, // home link
+        { label: '/Cart', path: '/cart' }, // add category link (if there is any)
+        { label: '/Payment', path: '/payment' } // Add current page
+      ]
+    };
+  }
+};
+</script>
+
 <style scoped>
 .container {
     margin: 0 auto;
-    width: max-content;
+    width: 95%;
+    font-family: "Kulim Park", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-.linkBreadcrumb {
-    margin-left: 0.3rem;
-}
 
-a {
-  text-decoration: none;
-  color: black;
-}
 
 </style>
