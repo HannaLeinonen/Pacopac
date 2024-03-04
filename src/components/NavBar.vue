@@ -52,7 +52,7 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
 
   font-family: 'Koulen', sans-serif;
   text-decoration: none;
-  color: var(--peach);
+  color: #f9dac0;
 }
 .brandName h1 {
   margin: 0 auto;
@@ -69,26 +69,51 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
   display: flex;
   padding-left: 2rem;
 }
-/* Media-queries desktop */
-@media only screen and (min-width: 992px) {
+/* Media-queries tablet and small laptops */
+@media only screen and (min-width: 798px) {
   .navBar {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(1fr);
     grid-gap: 1rem;
   }
 
   .brandName {
-    grid-column: 6/8;
+    grid-column: 3/5;
+    grid-row: 1;
   }
   .search {
     grid-column: 1/4;
+    grid-row: 1;
+    margin-left: 1rem;
   }
   .container {
-    grid-column: 12/13;
+    grid-column: 6;
+    grid-row: 1;
   }
-  .cart {
-    margin-right: 1rem;
+}
+/* Media-queries larger desktops */
+@media only screen and (min-width: 1200px) {
+  .navBar {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(1fr);
+    grid-gap: 1rem;
+  }
+  .brandName {
+    grid-column: 5/7;
+    grid-row: 1;
+  }
+  .search {
+    grid-column: 1/4;
+    grid-row: 1;
+    margin-left: 2rem;
+  }
+  .container {
+    grid-column: 10;
+    grid-row: 1;
+    margin-left: 1.5rem;
+    padding: 0;
   }
 }
 </style>
