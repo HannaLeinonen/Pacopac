@@ -28,7 +28,7 @@
 .menuIcon,
 .searchIcon,
 .brandName {
-  height: min-content; /* Setting height on icons so they are not taking unnecessary space below them */
+  height: min-content; /* /* Setting height on icons so they are not taking unnecessary space below them */
   padding-top: 0.4rem;
 }
 
