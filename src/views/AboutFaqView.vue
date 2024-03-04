@@ -55,11 +55,20 @@ export default {
 </script>
 
 <style scoped>
+
+/* Importing font Kulim Park */
+@import url('https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap');
+* {
+  overflow-x: visible;
+}
 .faq-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: "Kulim Park", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 .faq-container {
   background-color: #d9a87e;

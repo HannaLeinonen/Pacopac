@@ -1,5 +1,4 @@
 <script setup>
-import ShoppingBagIcon from '@/components/icons/ShoppingBagIcon.vue'
 import SearchIcon from '@/components/icons/SearchIcon.vue'
 import DropdownMenu from '@/components/DropdownMenu.vue'
 import ShoppingCartComponent from './ShoppingCartComponent.vue'
@@ -10,7 +9,7 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
     <nav>
       <div class="navBar">
         <!-- Searchbar component onClick -->
-        <SearchIcon />
+        <SearchIcon class="search" />
 
         <RouterLink to="/" class="brandName">
           <h1>
@@ -19,25 +18,27 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
           </h1>
         </RouterLink>
 
-        <!-- RouterLink to ShoppingBag page -->
-        <ShoppingCartComponent />
+        <div class="container">
+          <!-- RouterLink to ShoppingBag page -->
+          <ShoppingCartComponent class="cart" />
 
-        <!-- DropDownMenu onClick -->
-        <DropdownMenu />
+          <!-- DropDownMenu onClick -->
+          <DropdownMenu class="menu" />
+        </div>
       </div>
     </nav>
   </header>
 </template>
 
 <style scoped>
-/* Importing the font KOULEN for the brandName */
-@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
-
 .navBar {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(1fr);
+  grid-gap: 1rem;
   margin: 0 0 auto;
   padding: 0.5rem;
-  height: 67px;
+  height: 6rem;
   background-color: var(--darkGreen);
 }
 /* Styling the letters P in brandName
@@ -47,9 +48,8 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
 }
 .brandName {
   text-align: center;
-  /* Setting flex-grow so that it
-        takes more place then the other components */
-  flex-grow: 1;
+  grid-column: 2;
+
   font-family: 'Koulen', sans-serif;
   text-decoration: none;
   color: var(--peach);
@@ -57,5 +57,38 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
 .brandName h1 {
   margin: 0 auto;
   width: fit-content;
+}
+
+.search {
+  grid-column: 1;
+}
+
+.container {
+  grid-column: 3;
+
+  display: flex;
+  padding-left: 2rem;
+}
+/* Media-queries desktop */
+@media only screen and (min-width: 992px) {
+  .navBar {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(1fr);
+    grid-gap: 1rem;
+  }
+
+  .brandName {
+    grid-column: 6/8;
+  }
+  .search {
+    grid-column: 1/4;
+  }
+  .container {
+    grid-column: 12/13;
+  }
+  .cart {
+    margin-right: 1rem;
+  }
 }
 </style>

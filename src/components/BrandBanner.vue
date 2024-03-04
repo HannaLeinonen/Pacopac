@@ -41,6 +41,7 @@ const logos = ref([
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 .brand-logo {
   margin-top: 10px;

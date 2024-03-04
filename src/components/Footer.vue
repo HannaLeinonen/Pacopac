@@ -35,13 +35,14 @@ export default {
 .footer {
   background-color: #152618;
   color: #ffefe0;
-  max-height: 200px;
+  height: 20vh;
   width: 100%;
-  box-sizing: border-box;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 15px 0 0 15px;
+  font-family: "Kulim Park", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 2rem 0 0 0.6rem;
   letter-spacing: 1px;
   font-size: 14px;
 
@@ -62,16 +63,13 @@ export default {
 .col ul li a {
   color: #ffefe0;
   text-decoration: none;
-  font-size: larger;
-  transition: ease 0.5s;
+  font-size: medium;
 }
-
+.col ul li {
+    margin: 0.5rem;
+}
 .col ul li a:hover {
   color: #d9a87e;
-}
-
-h3 {
-  font-size: larger;
 }
 
 img {
@@ -83,9 +81,17 @@ img {
 }
 
 #wallet {
-  width: 30px;
+  width: 23px;
 }
 #master {
   margin-left: 40px;
+}
+
+/* Media-queries desktop */
+@media only screen and (min-width: 992px) {
+    .footer {
+        justify-content: center;
+        height: 200px;
+    }
 }
 </style>
