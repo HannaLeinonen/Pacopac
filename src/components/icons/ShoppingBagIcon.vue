@@ -1,7 +1,3 @@
-<script setup>
-import { RouterLink } from 'vue-router'
-</script>
-
 <template>
   <svg
     width="40px"
@@ -10,6 +6,7 @@ import { RouterLink } from 'vue-router'
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     stroke="#ffffff"
+    class="shoppingbagIcon"
   >
     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
     <g
@@ -42,6 +39,6 @@ import { RouterLink } from 'vue-router'
 
 <style scoped>
 .shoppingbagIcon {
-  padding-right: 0.3rem;
+  padding-top: 0.3rem;
 }
 </style>

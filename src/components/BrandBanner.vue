@@ -42,9 +42,6 @@ const reset = (index) => {
 </script>
 
 <style scoped>
-* {
-  overflow-x: visible;
-}
 .brand-banner {
   background-color: #fdebe2;
   display: flex;
@@ -61,6 +58,7 @@ const reset = (index) => {
   align-items: center;
   justify-content: center;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 .brand-logo {
   margin-top: 10px;
