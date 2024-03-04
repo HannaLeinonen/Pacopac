@@ -95,9 +95,6 @@ export default {
 
 <style scoped>
 /* Dropdown */
-* {
-  overflow-x: visible;
-}
 .dropdown-content {
   display: none;
   position: absolute;

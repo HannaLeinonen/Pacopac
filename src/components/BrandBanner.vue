@@ -43,7 +43,7 @@ const reset = (index) => {
 
 <style scoped>
 .brand-banner {
-  background-color: #fdebe2;
+  background-color: var(--peach);
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -51,7 +51,7 @@ const reset = (index) => {
 .eclipse {
   width: 48px;
   height: 48px;
-  background-color: #fdebe2;
+  background-color: var(--peach);
   border: solid black;
   border-radius: 50%;
   display: flex;

@@ -36,16 +36,15 @@ export default {
   background-color: #152618;
   color: #ffefe0;
   height: 20vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
-  font-family: "Kulim Park", sans-serif;
+  font-family: 'Kulim Park', sans-serif;
   font-weight: 400;
   font-style: normal;
   padding: 2rem 0 0 0.6rem;
   letter-spacing: 1px;
   font-size: 14px;
-
 }
 
 .row {
@@ -66,7 +65,7 @@ export default {
   font-size: medium;
 }
 .col ul li {
-    margin: 0.5rem;
+  margin: 0.5rem;
 }
 .col ul li a:hover {
   color: #d9a87e;
@@ -89,9 +88,9 @@ img {
 
 /* Media-queries desktop */
 @media only screen and (min-width: 992px) {
-    .footer {
-        justify-content: center;
-        height: 200px;
-    }
+  .footer {
+    justify-content: center;
+    height: 200px;
+  }
 }
 </style>

@@ -65,9 +65,7 @@ const toggleDropdown = () => {
 </script>
 
 <style scoped>
-* {
-  overflow-x: visible;
-}
+
 .dropdown-content {
   display: none;
   text-shadow: 5px 5px 5px black;
@@ -82,7 +80,6 @@ const toggleDropdown = () => {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   border-radius: 10px;
-  overflow-y: auto;
 }
 .dropdown-content.open {
   right: 0;

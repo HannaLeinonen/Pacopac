@@ -97,7 +97,7 @@ h1 {
   text-shadow: 5px 5px 5px black;
 }
 #sale {
-  margin: 1rem;
+  margin: 0 100px 0 100px ;
   transition: ease, 0.7;
   font-size: 50px;
 }

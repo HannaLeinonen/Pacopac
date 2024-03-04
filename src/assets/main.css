@@ -14,12 +14,12 @@
 
   --yellow: #bf9106;
 
-  --peach: #f9dac0;
+  --peach: #FFF5ED;
 
   --red: #592020;
 
   margin: 0;
-  padding: 0; 
+  padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
 }
@@ -33,6 +33,6 @@
 }
 
 body {
-  background-color: #ffefe0;
+  background-color: var(--peach);
   font-family: 'Koulen', sans-serif;
 }
