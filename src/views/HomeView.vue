@@ -58,6 +58,7 @@
 <!-- Script -->
 <script setup>
 import BrandBanner from '@/components/BrandBanner.vue'
+
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const slides = ref([
@@ -99,7 +100,7 @@ h1 {
 #sale {
   margin: 0 100px 0 100px;
   transition: ease, 0.7;
-  font-size: 80px;
+  font-size: 50px;
 }
 /* End of text style */
 
@@ -151,6 +152,7 @@ button:hover {
   background-position: center;
   background-size: contain;
   transition: ease-in-out 1s;
+  overflow: hidden;
 }
 .sale-banner:hover {
   background-position: top left;
@@ -248,9 +250,26 @@ button:hover {
   position: relative;
   z-index: 2;
   color: white;
-  margin: 0;
+  margin: 1rem;
+  text-align: center;
 }
 
 /* End of Inspo div */
+
+/* Media-queries desktop*/
+@media only screen and (min-width: 992px) {
+  #sale {
+    margin: 100px;
+    transition: ease, 0.7;
+    font-size: 80px;
+  }
+
+  .inspo-div h1 {
+    position: relative;
+    z-index: 2;
+    color: white;
+    margin: 0;
+  }
+}
 </style>
 <!-- End of Style -->

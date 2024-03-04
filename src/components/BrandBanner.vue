@@ -1,6 +1,12 @@
 <template>
   <div class="brand-banner">
-    <div v-for="(logo, index) in logos" :key="index" class="eclipse">
+    <div
+      v-for="(logo, index) in logos"
+      :key="index"
+      class="eclipse"
+      @mouseover="pop(index)"
+      @mouseleave="reset(index)"
+    >
       <a :href="logo.link">
         <img
           :src="logo.src"
@@ -23,12 +29,19 @@ const logos = ref([
   { src: '/src/assets/hhLogo.png', alt: 'Logo 5', link: '/backpacks/hellyhansen' },
   { src: '/src/assets/dbLogo.png', alt: 'Logo 4', link: '/backpacks/douchebags' }
 ])
+
+const pop = (index) => {
+  const eclipse = document.querySelectorAll('.eclipse')[index]
+  eclipse.classList.add('pop')
+}
+
+const reset = (index) => {
+  const eclipse = document.querySelectorAll('.eclipse')[index]
+  eclipse.classList.remove('pop')
+}
 </script>
 
 <style scoped>
-* {
-  overflow-x: visible;
-}
 .brand-banner {
   background-color: #fdebe2;
   display: flex;
@@ -46,6 +59,7 @@ const logos = ref([
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 5px;
   border-width: 2px;
 }
@@ -69,5 +83,14 @@ const logos = ref([
 .hhlogo {
   /* margin-top: 7px; */
   object-fit: contain;
+}
+
+.pop {
+  transform: scale(1.3);
+  transition: transform 0.3s ease;
+}
+
+.eclipse:hover {
+  background-color: white;
 }
 </style>
