@@ -58,7 +58,7 @@
 <!-- Script -->
 <script setup>
 import BrandBanner from '@/components/BrandBanner.vue'
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const slides = ref([
   { image: 'imgs/urban.webp', title: 'Urban' },
@@ -97,7 +97,7 @@ h1 {
   text-shadow: 5px 5px 5px black;
 }
 #sale {
-  margin: 100px;
+  margin: 0 100px 0 100px;
   transition: ease, 0.7;
   font-size: 80px;
 }

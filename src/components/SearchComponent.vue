@@ -77,6 +77,9 @@ const handleSearch = () => {
 </script>
 
 <style scoped>
+* {
+  overflow-x: visible;
+}
 .search-container {
   position: relative;
 }
