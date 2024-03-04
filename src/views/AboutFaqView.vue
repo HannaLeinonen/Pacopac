@@ -63,6 +63,9 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: "Kulim Park", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 .faq-container {
   background-color: #d9a87e;
