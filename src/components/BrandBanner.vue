@@ -26,9 +26,6 @@ const logos = ref([
 </script>
 
 <style scoped>
-* {
-  overflow-x: visible;
-}
 .brand-banner {
   background-color: #fdebe2;
   display: flex;
