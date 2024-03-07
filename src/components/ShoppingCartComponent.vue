@@ -7,7 +7,9 @@
       <div class="product-wrapper">
         <div class="cart-items">
           <div v-for="item in cart" :key="item.id" class="cart-item">
-            <button class="increase-decrease-button" @click="removeItem(item.id)">Remove ✕</button>
+            <button class="remove-button" @click="removeItem(item.id)">
+              <h3>Remove ✕</h3>
+            </button>
 
             <h3>{{ item.name }}</h3>
             <div class="increase-decrease">
@@ -95,16 +97,15 @@ export default {
 
 <style scoped>
 /* Dropdown */
-* {
-  overflow-x: visible;
-}
+
 .dropdown-content {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 100px;
   bottom: 0;
-  right: -100%;
+  right: -390px;
   transition: ease-in-out right 0.6s;
+
   background-color: #ffefe0;
   width: 390px;
   height: 600px;
@@ -114,6 +115,7 @@ export default {
   overflow-y: auto;
 }
 .dropdown-content.open {
+  position: absolute;
   right: 0;
 }
 .dropdown-toggle {
@@ -121,7 +123,7 @@ export default {
 }
 
 .dropdown-content {
-  display: block;
+  display: show;
 }
 /* End of Dropdown */
 
@@ -132,6 +134,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow-y: scroll;
   padding: 20px;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -158,18 +161,18 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
 }
 .increase-decrease {
+  overflow-y: hidden;
   flex-direction: row;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 39px;
-  width: 89px;
+  width: 109px;
+  margin: 30px;
   border: 1px solid #000;
   border-radius: 10px;
-  overflow: none;
 }
 /* End of Wrappers */
 /* Img */
@@ -189,7 +192,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Koulen', sans-serif;
+  margin-bottom: 20px;
   font-size: larger;
 }
 button:hover {
@@ -198,10 +201,19 @@ button:hover {
 
 .increase-decrease-button {
   background-color: transparent;
-  font-size: large;
+  border: none;
+  margin: 0px;
+  border-radius: 10px;
+  height: 43px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
 }
-.increase-decrease-button:hover {
+.remove-button {
   background-color: transparent;
+  width: 200px;
 }
 .remove-button:hover {
   background-color: #ffc48d;
@@ -209,7 +221,10 @@ button:hover {
 /* End of button */
 /* Text style */
 h3,
-h4 {
+p,
+h4,
+a {
+  font-family: 'Koulen', sans-serif;
   margin-left: 0;
   padding: 0;
 }

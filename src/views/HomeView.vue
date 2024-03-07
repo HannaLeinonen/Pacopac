@@ -16,6 +16,7 @@
       <h1 id="sale">SALE</h1>
       <h1 id="sale">SALE</h1>
     </div>
+
     <!-- End of Sale banner 1 -->
     <!-- Hero Slide -->
     <div class="hero-products">
@@ -89,16 +90,16 @@ onMounted(() => {
 4. Slideshow
 5. Inspo div
  */
-/* * {
-  overflow-x: visible;
-} */
+
 /* 1. Text style */
+
 h1 {
   letter-spacing: 2px;
   text-shadow: 5px 5px 5px black;
 }
 #sale {
-  margin: 0 100px 0 100px;
+  margin-left: 1rem;
+
   transition: ease, 0.7;
   font-size: 50px;
 }
@@ -154,9 +155,7 @@ button:hover {
   transition: ease-in-out 1s;
   overflow: hidden;
 }
-.sale-banner:hover {
-  background-position: top left;
-}
+
 #sale2 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url('/backpackImg/fjallravenXL.webp');
@@ -233,12 +232,6 @@ button:hover {
   opacity: 1;
 }
 
-.inspo-div::after {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('../imgs/winter-inspo.webp');
-  opacity: 0;
-}
-
 .inspo-div:hover::after {
   opacity: 1;
 }
@@ -264,11 +257,13 @@ button:hover {
     font-size: 80px;
   }
 
-  .inspo-div h1 {
-    position: relative;
-    z-index: 2;
-    color: white;
-    margin: 0;
+  .inspo-div::after {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url('../imgs/winter-inspo.webp');
+    opacity: 0;
+  }
+  .sale-banner:hover {
+    background-position: top left;
   }
 }
 </style>
