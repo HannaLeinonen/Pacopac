@@ -61,6 +61,7 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
 .brandName h1 {
   margin: 0 auto;
   width: fit-content;
+  padding: 0;
 }
 
 .search {

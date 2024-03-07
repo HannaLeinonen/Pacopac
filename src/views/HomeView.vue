@@ -59,6 +59,7 @@
 <!-- Script -->
 <script setup>
 import BrandBanner from '@/components/BrandBanner.vue'
+
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const slides = ref([
@@ -98,6 +99,7 @@ h1 {
 }
 #sale {
   margin-left: 1rem;
+
   transition: ease, 0.7;
   font-size: 50px;
 }
@@ -254,6 +256,7 @@ button:hover {
     transition: ease, 0.7;
     font-size: 80px;
   }
+
   .inspo-div::after {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
       url('../imgs/winter-inspo.webp');
