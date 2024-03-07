@@ -99,10 +99,13 @@ export default {
 /* Dropdown */
 
 .dropdown-content {
+  display: none;
   position: fixed;
   top: 100px;
-  right: -100%;
-  transition: ease-in-out right 0.8s;
+  bottom: 0;
+  right: -390px;
+  transition: ease-in-out right 0.6s;
+
   background-color: #ffefe0;
   width: 390px;
   height: 600px;
@@ -112,6 +115,7 @@ export default {
   overflow-y: auto;
 }
 .dropdown-content.open {
+  position: absolute;
   right: 0;
 }
 .dropdown-toggle {
