@@ -98,7 +98,7 @@ export default {
 <style scoped>
 /* Dropdown */
 .dropdown-content {
-  display: none;
+
   position: fixed;
   top: 100px;
   bottom: 0;
@@ -107,11 +107,10 @@ export default {
 
   background-color: #ffefe0;
   width: 390px;
-  height: 600px;
+  height: max-content;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   border-radius: 10px;
-  overflow-y: auto;
 }
 .dropdown-content.open {
   position: absolute;
@@ -133,7 +132,6 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow-y: scroll;
   padding: 20px;
   margin-bottom: 10px;
   margin-top: 10px;
