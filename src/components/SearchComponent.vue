@@ -100,6 +100,7 @@ const updateQuery = () => {
 .search-container {
   position: relative;
   z-index: 1000;
+  font-family: 'Kulim Park', sans-serif;
 }
 
 .search-wrapper {
