@@ -5,7 +5,6 @@ import PaymentViewVue from '@/views/PaymentView.vue'
 import ProductView from '../views/ProductView.vue'
 import FaqView from '../views/AboutFaqView.vue'
 
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -15,7 +14,7 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/backpacks',
+      path: '/backpacks/:brand?',
       name: 'backpacks',
       component: BackpacksView
     },
@@ -32,7 +31,7 @@ const router = createRouter({
     {
       path: '/faq',
       name: 'faq',
-      component:FaqView
+      component: FaqView
     }
   ]
 })

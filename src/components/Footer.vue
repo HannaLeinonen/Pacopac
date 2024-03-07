@@ -35,10 +35,11 @@ export default {
 .footer {
   background-color: #152618;
   color: #ffefe0;
-  height: 20vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
+
   font-family: 'Kulim Park', sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -84,13 +85,5 @@ img {
 }
 #master {
   margin-left: 40px;
-}
-
-/* Media-queries desktop */
-@media only screen and (min-width: 992px) {
-  .footer {
-    justify-content: center;
-    height: 200px;
-  }
 }
 </style>
