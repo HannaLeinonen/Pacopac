@@ -1,22 +1,38 @@
+<script setup>
+import SwishIcon from '@/components/icons/SwishIcon.vue'
+import MasterCardIcon from './icons/MasterCardIcon.vue';
+import VisaIcon from './icons/VisaIcon.vue';
+import KlarnaIcon from './icons/KlarnaIcon.vue';
+
+</script>
+
 <template>
   <div class="paymentContainer">
     <label class="payments">
       Card
-      <input type="radio" />
+
+      <VisaIcon id="visa" class="icons"/>
+      <MasterCardIcon id="mastercard" class="icons"/>
+
+      <input type="radio" name="radio"/>
       <span class="checkmark"></span>
     </label>
     <label class="payments">
       Swish
-      <input type="radio" />
+      <SwishIcon id="swish" class="icons"/>
+      <input type="radio" name="radio"/>
       <span class="checkmark"></span>
     </label>
     <label class="payments">
       Klarna
-      <input type="radio" />
+      <KlarnaIcon id="klarna" class="icons" />
+      <input type="radio" name="radio"/>
       <span class="checkmark"></span>
     </label>
   </div>
 </template>
+
+
 
 <style scoped>
 .paymentContainer{
@@ -24,27 +40,26 @@
     width: 85%;
     background-color: white;
     border: 1px solid lightslategray;
+
 }
 .payments {
   display: block;
   position: relative;
-
+  height: 43px;
   padding: 0.5rem;
   cursor: pointer;
-  font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
-  border-bottom: 1px solid lightslategray;
-}
-
-.payments input:checked ~ .checkmark {
-    background-color: white;
+  font-size: 18px;
 
 }
-/* Make a custom checkbox */
+/* Styling the first 2 elements of payments class */
+.payments:nth-child(-n+2) {
+    border-bottom: 1px solid lightslategray;
+}
+/* Make a custom radio button */
 .checkmark {
     position: absolute;
     top: 0.8rem;
@@ -54,16 +69,19 @@
     width: 10px;
     border: 1px solid lightslategray;
     border-radius: 50%;
-
 }
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
+
+/* Show the indicator when checked */
 .container input:checked ~ .checkmark:after {
   display: block;
 }
+
+/* Style the indicator */
 .container .checkmark:after {
  	top: 1px;
 	left: 1px;
@@ -77,5 +95,30 @@
     position: absolute;
     opacity: 0;
     cursor: pointer;
+}
+
+/* Icons */
+#klarna, #swish {
+    margin-left: 9.6rem;
+}
+#visa{
+    margin-left: 8.7rem;
+}
+#mastercard {
+    margin-left: 0.3rem;
+}
+
+/* Media-queries larger desktops */
+@media only screen and (min-width: 1200px) {
+    /* Icons */
+    #klarna, #swish {
+        margin-left: 10.5rem;
+    }
+    #visa{
+        margin-left: 9.6rem;
+    }
+    #mastercard {
+        margin-left: 0.3rem;
+    }
 }
 </style>

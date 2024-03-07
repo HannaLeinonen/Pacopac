@@ -32,10 +32,8 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
 
 <style scoped>
 .navBar {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: repeat(1fr);
-  grid-gap: 1rem;
+  display: flex;
+  justify-content: space-between;
   margin: 0 0 auto;
   padding: 0.5rem;
   height: 6rem;
@@ -48,7 +46,6 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
 }
 .brandName {
   text-align: center;
-  grid-column: 2;
 
   font-family: 'Koulen', sans-serif;
   text-decoration: none;
@@ -60,60 +57,12 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
 }
 
 .search {
-  grid-column: 1;
+  width: 130px;
 }
 
 .container {
-  grid-column: 3;
-
+  width: 130px;
   display: flex;
   padding-left: 2rem;
-}
-/* Media-queries tablet and small laptops */
-@media only screen and (min-width: 798px) {
-  .navBar {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(1fr);
-    grid-gap: 1rem;
-  }
-
-  .brandName {
-    grid-column: 3/5;
-    grid-row: 1;
-  }
-  .search {
-    grid-column: 1/4;
-    grid-row: 1;
-    margin-left: 1rem;
-  }
-  .container {
-    grid-column: 6;
-    grid-row: 1;
-  }
-}
-/* Media-queries larger desktops */
-@media only screen and (min-width: 1200px) {
-  .navBar {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(1fr);
-    grid-gap: 1rem;
-  }
-  .brandName {
-    grid-column: 5/7;
-    grid-row: 1;
-  }
-  .search {
-    grid-column: 1/4;
-    grid-row: 1;
-    margin-left: 2rem;
-  }
-  .container {
-    grid-column: 10;
-    grid-row: 1;
-    margin-left: 1.5rem;
-    padding: 0;
-  }
 }
 </style>

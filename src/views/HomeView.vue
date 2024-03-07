@@ -121,7 +121,7 @@ h1 {
 button {
   background-color: #d9a87e;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   height: 43px;
   width: 280px;
   transition: ease 0.6s;

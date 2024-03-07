@@ -20,8 +20,8 @@ const router = createRouter({
       component: BackpacksView
     },
     {
-      path: '/payment',
-      name: 'payment',
+      path: '/checkout',
+      name: 'checkout',
       component: PaymentViewVue
     },
     {
