@@ -55,15 +55,17 @@ export default {
 </script>
 
 <style scoped>
+
 * {
   overflow-x: visible;
 }
+
 .faq-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "Kulim Park", sans-serif;
+  font-family: 'Kulim Park', sans-serif;
   font-weight: 400;
   font-style: normal;
 }
