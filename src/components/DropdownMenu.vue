@@ -19,35 +19,35 @@
       </div>
 
       <div class="products">
-        <a href="/" id="home">
+        <router-link to="/" id="home">
           <div class="product-image">HOME</div>
-        </a>
+        </router-link>
 
-        <a href="#" id="helly">
+        <router-link to="/backpacks?brand=Helly+Hansen" id="helly">
           <div class="product-image">HELLY <br />HANSEN</div>
-        </a>
+        </router-link>
 
-        <a href="#" id="douche">
+        <router-link to="/backpacks?brand=Douchebags" id="douche">
           <div class="product-image">DOUCHEBAGS</div>
-        </a>
+        </router-link>
 
-        <a href="#" id="nike">
+        <router-link to="/backpacks?brand=Nike" id="nike">
           <div class="product-image">NIKE</div>
-        </a>
+        </router-link>
 
-        <a href="#" id="adidas">
+        <router-link to="/backpacks?brand=Adidas" id="adidas">
           <div class="product-image">ADIDAS</div>
-        </a>
+        </router-link>
 
-        <a href="#" id="fjell">
+        <router-link to="/backpacks?brand=Fjällräven" id="fjell">
           <div class="product-image">FJELLREVEN</div>
-        </a>
+        </router-link>
       </div>
-      <a href="#" id="sale">
+      <router-link to="#" id="sale">
         <div class="sale">
           <div>SALE</div>
         </div>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

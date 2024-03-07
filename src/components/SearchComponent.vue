@@ -14,6 +14,7 @@
         <img src="@/assets/searchIcon.png" alt="search icon" />
       </button>
     </div>
+
     <ul v-show="query && results.length" class="search-results">
       <li
         v-for="(product, index) in results"
@@ -92,18 +93,13 @@ const updateQuery = () => {
 </script>
 
 <style scoped>
-* {
-  overflow-x: visible;
-}
-<<<<<<< HEAD
-=======
-
 .selected {
   background-color: #f0f0f0;
 }
->>>>>>> ae1aa9775462c354330d53b594d54f32f4948815
+
 .search-container {
   position: relative;
+  z-index: 1000;
 }
 
 .search-wrapper {
@@ -133,6 +129,8 @@ const updateQuery = () => {
 }
 
 .search-results {
+  z-index: 1001;
+  overflow-y: auto;
   font-size: 22px;
   position: absolute;
   top: 100%;
@@ -167,7 +165,7 @@ const updateQuery = () => {
     border-radius: 5px 0 0 5px;
   }
 
-    .search-button {
+  .search-button {
     display: inline-block;
   }
 

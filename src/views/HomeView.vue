@@ -89,9 +89,9 @@ onMounted(() => {
 4. Slideshow
 5. Inspo div
  */
-* {
+/* * {
   overflow-x: visible;
-}
+} */
 /* 1. Text style */
 h1 {
   letter-spacing: 2px;
