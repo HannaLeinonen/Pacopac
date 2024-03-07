@@ -164,7 +164,7 @@ const updateQuery = () => {
     border-radius: 5px 0 0 5px;
   }
 
-    .search-button {
+  .search-button {
     display: inline-block;
   }
 

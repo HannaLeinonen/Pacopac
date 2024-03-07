@@ -100,10 +100,10 @@ export default {
 }
 .dropdown-content {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 100px;
   bottom: 0;
-  right: -100%;
+  right: -390px;
   transition: ease-in-out right 0.6s;
   background-color: #ffefe0;
   width: 390px;
@@ -114,6 +114,7 @@ export default {
   overflow-y: auto;
 }
 .dropdown-content.open {
+  position: absolute;
   right: 0;
 }
 .dropdown-toggle {

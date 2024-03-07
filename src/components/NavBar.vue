@@ -31,6 +31,10 @@ import ShoppingCartComponent from './ShoppingCartComponent.vue'
 </template>
 
 <style scoped>
+/* * {
+  overflow: visible;
+} */
+
 .navBar {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
