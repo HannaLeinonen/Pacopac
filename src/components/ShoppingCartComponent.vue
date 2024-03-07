@@ -97,7 +97,6 @@ export default {
 
 <style scoped>
 /* Dropdown */
-
 .dropdown-content {
   display: none;
   position: fixed;

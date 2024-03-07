@@ -55,11 +55,6 @@ export default {
 </script>
 
 <style scoped>
-
-* {
-  overflow-x: visible;
-}
-
 .faq-wrapper {
   display: flex;
   justify-content: center;
