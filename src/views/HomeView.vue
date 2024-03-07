@@ -37,11 +37,7 @@
     </div>
     <!-- End of Hero Slide -->
     <!-- Sale banner 2 -->
-    <div class="sale-banner" id="sale2">
-      <h1 id="sale">SALE</h1>
-      <h1 id="sale">SALE</h1>
-      <h1 id="sale">SALE</h1>
-    </div>
+
     <!-- End of Sale banner 2 -->
     <!-- Inspo div -->
     <div class="inspo-div">
@@ -61,6 +57,7 @@
 import BrandBanner from '@/components/BrandBanner.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 
+/* Auto slide Urban / Nature */
 const slides = ref([
   { image: 'imgs/urban.webp', title: 'Urban' },
   { image: 'imgs/nature.webp', title: 'Nature' }
@@ -78,6 +75,7 @@ onMounted(() => {
     clearInterval(interval)
   })
 })
+/* End of Auto slide Urban / Nature */
 </script>
 <!--  End of Script -->
 <!-- Style -->
@@ -96,11 +94,7 @@ h1 {
   letter-spacing: 2px;
   text-shadow: 5px 5px 5px black;
 }
-#sale {
-  margin-left: 1rem;
-  transition: ease, 0.7;
-  font-size: 50px;
-}
+
 /* End of text style */
 
 /* 2. New arrivals section */
@@ -141,22 +135,18 @@ button:hover {
 .sale-banner {
   color: #ff0000;
   display: flex;
-  height: 154px;
-  text-align: center;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('/backpackImg/nikeL.webp');
-  background-position: bottom left;
-  background-position: center;
-  background-size: contain;
-  transition: ease-in-out 1s;
-  overflow: hidden;
+  font-size: 30px;
+  height: 30vh;
+  width: 100%;
+  margin: 7vh 0 7vh 0;
 }
 
-#sale2 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('/backpackImg/fjallravenXL.webp');
+#sale:nth-of-type(2),
+#sale:nth-of-type(3) {
+  display: none;
 }
 /* End of Sale Banner */
 
@@ -164,9 +154,10 @@ button:hover {
 .hero-products {
   color: white;
   font-size: 30px;
-  height: 207px;
+  height: 30vh;
   width: 100%;
   text-align: center;
+  margin: 7vh 0 7vh 0;
 }
 
 #slideshow {
@@ -186,11 +177,7 @@ button:hover {
 .slide.active {
   opacity: 1;
 }
-.slide img {
-  width: 100%;
-  height: 207px;
-  object-fit: cover;
-}
+
 .slide h1 {
   position: absolute;
   top: 50%;
@@ -203,12 +190,13 @@ button:hover {
 /* 5. Inspo div */
 .inspo-div {
   position: relative;
-  height: 400px;
+  height: 40vh;
   color: white;
   justify-content: center;
   align-items: center;
   display: flex;
   overflow: hidden;
+  margin: 7vh 0 7vh 0;
 }
 
 .inspo-div::before,
@@ -230,13 +218,6 @@ button:hover {
   opacity: 1;
 }
 
-.inspo-div:hover::after {
-  opacity: 1;
-}
-
-.inspo-div:hover::before {
-  opacity: 0;
-}
 .inspo-div h1 {
   position: relative;
   z-index: 2;
@@ -254,13 +235,22 @@ button:hover {
     transition: ease, 0.7;
     font-size: 80px;
   }
+
+  #sale:nth-of-type(2),
+  #sale:nth-of-type(3) {
+    display: block;
+  }
   .inspo-div::after {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
       url('../imgs/winter-inspo.webp');
     opacity: 0;
   }
-  .sale-banner:hover {
-    background-position: top left;
+  .inspo-div:hover::after {
+    opacity: 1;
+  }
+
+  .inspo-div:hover::before {
+    opacity: 0;
   }
 }
 </style>
