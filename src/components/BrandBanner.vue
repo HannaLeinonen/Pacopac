@@ -51,7 +51,7 @@ const reset = (index) => {
 
 <style scoped>
 .brand-banner {
-  background-color: #ffedcf;
+  background-color: #ffefe0;
   display: flex;
   justify-content: space-around;
   padding: 10px;

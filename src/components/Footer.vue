@@ -89,8 +89,8 @@ img {
 
 /* Media-queries desktop */
 @media only screen and (min-width: 992px) {
-  .footer {
+  /*  .footer {
     height: 15vh;
-  }
+  } */
 }
 </style>
