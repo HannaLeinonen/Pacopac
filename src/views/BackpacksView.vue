@@ -108,24 +108,30 @@ watch(
 }
 .filterMenu {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 0.5rem;
 }
 .filterMenu button {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Kulim Park', sans-serif;
   font-weight: 400;
   cursor: pointer;
   border-style: none;
   border-width: 0.05rem;
-  border-color: rgb(199, 199, 199);
-  border-radius: 2px;
-  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
-  background-color: rgb(255, 255, 255);
-  margin: 0.05rem;
-  font-size: 1rem;
+  border-color: rgb(209, 144, 74);
+  border-radius: 6px;
+  padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+  background-color: rgb(250, 226, 202);
+  margin: 0 0.05rem 0.5rem 0.05rem;
+  font-size: 1.2rem;
 }
 .filterMenu .active {
-  background-color: rgb(247, 210, 161);
+  background-color: rgb(227, 177, 113);
   font-weight: 600;
+}
+@media (min-width: 760px) {
+  .filterMenu button {
+    font-size: 1.5rem;
+  }
 }
 </style>
