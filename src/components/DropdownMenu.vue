@@ -167,7 +167,7 @@ button {
 }
 .product-image:hover {
   color: #d9a87e;
-  font-size: 35px;
+  font-size: 30px;
 }
 #all-backpacks {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
@@ -179,9 +179,7 @@ button {
   transition: ease-in-out 0.7s;
   background-position: right left;
 }
-#home:hover {
-  background-position: top left;
-}
+
 #nike {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url('/backpackImg/nikeM.webp');
