@@ -1,7 +1,14 @@
 <script setup>
+import { onMounted } from 'vue'
 import { RouterView } from 'vue-router'
 import NavBar from './components/NavBar.vue'
 import FooterComponent from './components/Footer.vue'
+import { useStore } from '@/Store/store.js'
+const cartStore = useStore()
+
+onMounted(() => {
+  cartStore.loadCart()
+})
 </script>
 
 <template>

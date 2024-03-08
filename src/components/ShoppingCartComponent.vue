@@ -6,12 +6,12 @@
     <div class="dropdown-content" :class="{ open: isOpen }">
       <div class="product-wrapper">
         <div class="cart-items">
-          <div v-for="item in cart" :key="item.id" class="cart-item">
+          <div v-for="item in cartItems" :key="item.id" class="cart-item">
             <button class="remove-button" @click="removeItem(item.id)">
               <h3>Remove ✕</h3>
             </button>
 
-            <h3>{{ item.name }}</h3>
+            <h3>{{ item.brand }}</h3>
             <div class="increase-decrease">
               <button class="increase-decrease-button" @click="incrementItemQuantity(item.id)">
                 +
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="text-wrapper">
-        <h3>Total cost : ${{ totalCost }}</h3>
+        <h3>Total cost : ${{ totalCost.toFixed(2) }}</h3>
         <h4>Shippment added in checkout</h4>
       </div>
       <div class="checkout-button">
@@ -41,64 +41,28 @@
 </template>
 
 <script setup>
+import { useStore } from '@/Store/store.js'
 import ShoppingBagIcon from './icons/ShoppingBagIcon.vue'
 import CloseMenu from './icons/CloseMenuIcon.vue'
-import { ref } from 'vue'
-const isOpen = ref(false)
+import { ref, computed } from 'vue'
+const cartStore = useStore()
 
+const isOpen = ref(false)
+const cartItems = computed(() => cartStore.cartItems)
+
+const removeItem = cartStore.removeItem
+const incrementItemQuantity = cartStore.incrementItemQuantity
+const decrementItemQuantity = cartStore.decrementItemQuantity
+
+const totalCost = computed(() => cartStore.totalCost)
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value
-}
-</script>
-
-<script>
-export default {
-  data() {
-    return {
-      cart: []
-    }
-  },
-  computed: {
-    totalCost() {
-      return this.cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
-    }
-  },
-  methods: {
-    addItem(newItem) {
-      const existingItem = this.cart.find((item) => item.id === newItem.id)
-      if (existingItem) {
-        existingItem.quantity += newItem.quantity
-      } else {
-        this.cart.push({ ...newItem, quantity: newItem.quantity || 1 })
-      }
-    },
-    removeItem(itemId) {
-      this.cart = this.cart.filter((item) => item.id !== itemId)
-    },
-    incrementItemQuantity(itemId) {
-      const cartItem = this.cart.find((item) => item.id === itemId)
-      if (cartItem) {
-        cartItem.quantity++
-      }
-    },
-    decrementItemQuantity(itemId) {
-      const cartItem = this.cart.find((item) => item.id === itemId)
-      if (cartItem && cartItem.quantity > 1) {
-        cartItem.quantity--
-      }
-    }
-  },
-  mounted() {
-    this.addItem({ id: 1, name: 'Product 1', price: 100, quantity: 1 })
-    this.addItem({ id: 2, name: 'Product 2', price: 200, quantity: 2 })
-  }
 }
 </script>
 
 <style scoped>
 /* Dropdown */
 .dropdown-content {
-  
   position: fixed;
   top: 100px;
   bottom: 0;
@@ -111,7 +75,6 @@ export default {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   border-radius: 10px;
-  
 }
 .dropdown-content.open {
   position: absolute;
@@ -133,7 +96,6 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
   padding: 20px;
   margin-bottom: 10px;
   margin-top: 10px;

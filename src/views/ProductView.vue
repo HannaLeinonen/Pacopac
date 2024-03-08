@@ -1,5 +1,6 @@
 <template>
-  <p><a href="/">home</a><a href="/backpacks">/Backpacks</a>/Product</p>
+  <p><a href="/">home</a><a href="/backpacks">/Backpacks</a>/{{ product.brand }}</p>
+
   <div id="product-container" v-if="product">
     <div id="productImg">
       <img :src="product.imgUrl" />
@@ -23,7 +24,7 @@
       </div>
 
       <div id="cartButton">
-        <button @click="addToCart">ADD TO CART</button>
+        <button @click="addToCart(product)">ADD TO CART</button>
       </div>
 
       <p>In stock: <span id="inStore"></span> (50+ available)</p>
@@ -41,20 +42,29 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      product: null
-    }
-  },
-  async created() {
-    const productId = this.$route.params.productId
+<script setup>
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import { useStore } from '@/Store/store.js'
+const cartStore = useStore()
+const product = ref('')
 
-    const products = await fetch('/products.json').then((res) => res.json())
+const route = useRoute()
 
-    this.product = products.find((p) => p.id === parseInt(productId))
-  }
+// Replaces the created lifecycle hook
+onMounted(async () => {
+  await fetchData()
+})
+
+async function fetchData() {
+  const productId = route.params.productId
+  const products = await fetch('/products.json').then((res) => res.json())
+  product.value = products.find((p) => p.id === parseInt(productId))
+}
+
+function addToCart(product) {
+  cartStore.addToCart(product)
+  console.log(product.brand)
 }
 </script>
 <style scoped>
