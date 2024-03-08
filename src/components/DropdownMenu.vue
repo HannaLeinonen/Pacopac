@@ -19,8 +19,8 @@
       </div>
 
       <div class="products">
-        <router-link to="/" id="home">
-          <div class="product-image">HOME</div>
+        <router-link to="/backpacks?category=All" id="all-backpacks">
+          <div class="product-image">All backpacks</div>
         </router-link>
 
         <router-link to="/backpacks?brand=Helly+Hansen" id="helly">
@@ -169,9 +169,9 @@ button {
   color: #d9a87e;
   font-size: 35px;
 }
-#home {
+#all-backpacks {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('../imgs/home.webp');
+    url('../imgs/allbackpacks.webp');
   background-repeat: no-repeat;
   background-size: 100%;
   border-radius: 10px;

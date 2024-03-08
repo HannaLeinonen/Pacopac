@@ -237,7 +237,7 @@ button:hover {
 
   #sale:nth-of-type(2),
   #sale:nth-of-type(3) {
-    display: none;
+    display: block;
   }
 
   .inspo-div::after {
