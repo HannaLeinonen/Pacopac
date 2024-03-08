@@ -19,35 +19,35 @@
       </div>
 
       <div class="products">
-        <a href="/" id="home">
+        <router-link to="/" id="home">
           <div class="product-image">HOME</div>
-        </a>
+        </router-link>
 
-        <a href="#" id="helly">
+        <router-link to="/backpacks?brand=Helly+Hansen" id="helly">
           <div class="product-image">HELLY <br />HANSEN</div>
-        </a>
+        </router-link>
 
-        <a href="#" id="douche">
+        <router-link to="/backpacks?brand=Douchebags" id="douche">
           <div class="product-image">DOUCHEBAGS</div>
-        </a>
+        </router-link>
 
-        <a href="#" id="nike">
+        <router-link to="/backpacks?brand=Nike" id="nike">
           <div class="product-image">NIKE</div>
-        </a>
+        </router-link>
 
-        <a href="#" id="adidas">
+        <router-link to="/backpacks?brand=Adidas" id="adidas">
           <div class="product-image">ADIDAS</div>
-        </a>
+        </router-link>
 
-        <a href="#" id="fjell">
+        <router-link to="/backpacks?brand=Fjällräven" id="fjell">
           <div class="product-image">FJELLREVEN</div>
-        </a>
+        </router-link>
       </div>
-      <a href="#" id="sale">
+      <router-link to="#" id="sale">
         <div class="sale">
           <div>SALE</div>
         </div>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
@@ -69,17 +69,19 @@ const toggleDropdown = () => {
   text-shadow: 5px 5px 5px black;
   position: fixed;
   top: 100px;
-  right: -100%;
-  transition: ease-in-out right 0.8s;
+  bottom: 0;
+  right: -390px;
+  transition: ease-in-out right 0.6s;
+
   background-color: #ffefe0;
   width: 390px;
   height: 531px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   border-radius: 10px;
-  overflow-y: auto;
 }
 .dropdown-content.open {
+  position: absolute;
   right: 0;
 }
 .dropdown-toggle {

@@ -1,6 +1,5 @@
-
 <script setup>
-    import SearchComponent from '../SearchComponent.vue';
+import SearchComponent from '../SearchComponent.vue'
 </script>
 <template>
   <div class="searchIcon">
@@ -28,22 +27,22 @@
     </button>
 
     <!-- SearchBar component -->
-    <SearchComponent v-if="showSearchBar"/>
+    <SearchComponent v-if="showSearchBar" />
   </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            showSearchBar: false
-        }
-    },
-    methods: {
-        openSearchBar() {
-            this.showSearchBar = !this.showSearchBar
-        }
+  data() {
+    return {
+      showSearchBar: false
     }
+  },
+  methods: {
+    openSearchBar() {
+      this.showSearchBar = !this.showSearchBar
+    }
+  }
 }
 </script>
 

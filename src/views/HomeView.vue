@@ -55,6 +55,7 @@
 <!-- Script -->
 <script setup>
 import BrandBanner from '@/components/BrandBanner.vue'
+
 import { ref, onMounted, onUnmounted } from 'vue'
 
 /* Auto slide Urban / Nature */
@@ -115,7 +116,7 @@ h1 {
 button {
   background-color: #d9a87e;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   height: 43px;
   width: 280px;
   transition: ease 0.6s;
@@ -144,10 +145,7 @@ button:hover {
   margin: 7vh 0 7vh 0;
 }
 
-#sale:nth-of-type(2),
-#sale:nth-of-type(3) {
-  display: none;
-}
+
 /* End of Sale Banner */
 
 /* 4. SlideShow */
@@ -236,10 +234,12 @@ button:hover {
     font-size: 80px;
   }
 
+
   #sale:nth-of-type(2),
   #sale:nth-of-type(3) {
-    display: block;
+    display: none;
   }
+
   .inspo-div::after {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
       url('../imgs/winter-inspo.webp');

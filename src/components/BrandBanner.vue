@@ -6,28 +6,36 @@
       class="eclipse"
       @mouseover="pop(index)"
       @mouseleave="reset(index)"
+      @click="viewBrand(logo.brand)"
     >
-      <a :href="logo.link">
+      <router-link :to="`/backpacks`">
         <img
           :src="logo.src"
           :alt="logo.alt"
-          :class="{ dblogo: index === 3, hhlogo: index === 4 }"
+          :class="{ hhlogo: index === 3, dblogo: index === 4 }"
           class="brand-logo"
         />
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
+
+const viewBrand = (brand) => {
+  // Navigate to the BackpacksView component and pass the brand as a query parameter
+  router.push({ name: 'backpacks', query: { brand: brand } })
+}
 const logos = ref([
-  { src: '/src/assets/Nike.png', alt: 'Logo 1', link: '/backpacks/nike' },
-  { src: '/src/assets/adidasLogo.png', alt: 'Logo 2', link: '/backpacks/adidas' },
-  { src: '/src/assets/Foxtail.png', alt: 'Logo 3', link: '/backpacks/fjällräven' },
-  { src: '/src/assets/dbLogo.png', alt: 'Logo 4', link: '/backpacks/douchebags' },
-  { src: '/src/assets/hellyhansen.png', alt: 'Logo 5', link: '/backpacks/hellyhansen' }
+  { src: '/src/assets/nikeLogo1.png', alt: 'Nike', brand: 'Nike' },
+  { src: '/src/assets/fjallravenLogo2.png', alt: 'Fjällräven', brand: 'Fjällräven' },
+  { src: '/src/assets/adidasLogo1.png', alt: 'Adidas', brand: 'Adidas' },
+  { src: '/src/assets/hhLogo.png', alt: 'Helly Hansen', brand: 'Helly Hansen' },
+  { src: '/src/assets/dbLogo.png', alt: 'Douchebags', brand: 'Douchebags' }
 ])
 
 const pop = (index) => {
@@ -43,22 +51,26 @@ const reset = (index) => {
 
 <style scoped>
 .brand-banner {
-  background-color: #fdebe2;
+  background-color: #ffedcf;
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  justify-content: space-around;
+  padding: 10px;
 }
 .eclipse {
-  width: 48px;
-  height: 48px;
-  background-color: #fdebe2;
-  border: solid black;
+  width: 60px;
+  height: 60px;
+  border: solid rgba(0, 0, 0, 0.127);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  padding: 5px;
+  border-width: 2px;
+}
+.eclipse:hover {
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.438);
+  transform: translateY(-4px);
 }
 .brand-logo {
   margin-top: 10px;
@@ -67,21 +79,14 @@ const reset = (index) => {
 }
 
 .dblogo {
-  margin-left: 4px;
-  margin-top: 6px;
-  max-width: 80%;
-  max-height: 80%;
+  object-fit: contain;
 }
 .hhlogo {
-  margin-top: 7px;
+  object-fit: contain;
 }
 
 .pop {
   transform: scale(1.3);
   transition: transform 0.3s ease;
-}
-
-.eclipse:hover {
-  background-color: white;
 }
 </style>

@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import NavBar from './components/NavBar.vue';
+import NavBar from './components/NavBar.vue'
 import FooterComponent from './components/Footer.vue'
 </script>
 
@@ -9,16 +9,13 @@ import FooterComponent from './components/Footer.vue'
     <div id="app">
       <NavBar />
       <main>
-        <RouterView />
+        <RouterView :key="$route.fullPath" />
       </main>
 
       <FooterComponent />
     </div>
   </body>
-
-
 </template>
-
 
 <style scoped>
 main {
@@ -28,6 +25,5 @@ main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
 }
 </style>
