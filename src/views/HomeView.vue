@@ -11,7 +11,7 @@
     </div>
     <!-- End of New arrivals -->
     <!-- Sale banner -->
-    <div class="sale-banner">
+    <div @click="goToBackpacks" class="sale-banner">
       <div id="slideshow-sale">
         <div
           v-for="(slide, index) in img"
@@ -169,7 +169,9 @@ button:hover {
   text-align: center;
   margin: 7vh 0 7vh 0;
 }
-
+.sale-banner:hover {
+  cursor: pointer;
+}
 #slideshow-sale {
   position: relative;
   overflow: hidden;
