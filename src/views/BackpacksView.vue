@@ -5,13 +5,14 @@
   </p>
   <div class="filterMenu">
     <button
-      v-for="category in categories"
-      :class="{ active: activeCategory === category.name }"
-      :key="category.id"
-      @click="filterProducts(category.name)"
+      v-for="brand in brands"
+      :class="{ active: activeCategory === brand }"
+      :key="brand"
+      @click="filterProducts(brand)"
     >
-      {{ category.name }}
+      {{ brand }}
     </button>
+    <button :class="{ active: activeSale }" @click="filterBySale">Sale</button>
   </div>
   <div class="filterMenu">
     <button
@@ -42,21 +43,14 @@ import { ref, watch, onMounted } from 'vue'
 import ProductCard from '@/components/productCard.vue'
 import { useRoute, useRouter } from 'vue-router'
 
-const categories = ref([
-  { id: 1, name: 'All' },
-  { id: 2, name: 'Fjällräven' },
-  { id: 3, name: 'Helly Hansen' },
-  { id: 4, name: 'Douchebags' },
-  { id: 5, name: 'Adidas' },
-  { id: 6, name: 'Nike' }
-])
+const brands = ref(['All', 'Fjällräven', 'Helly Hansen', 'Douchebags', 'Adidas', 'Nike'])
 
 const sizes = ref(['All', 'Medium', 'Large', 'XL'])
 const products = ref([])
 const filteredProducts = ref([])
 const activeCategory = ref('All')
 const activeSize = ref('All')
-
+const activeSale = ref(false)
 const router = useRouter()
 const route = useRoute()
 
@@ -68,11 +62,15 @@ const fetchProducts = async () => {
   activeCategory.value = brand || 'All'
   applyFilters()
 }
-
-const filterProducts = (category) => {
-  activeCategory.value = category
+const filterBySale = () => {
+  activeSale.value = !activeSale.value // Toggle the sale filter status
   applyFilters()
-  router.push({ path: '/backpacks', query: { category: category } })
+}
+
+const filterProducts = (brand) => {
+  activeCategory.value = brand
+  applyFilters()
+  router.push({ path: '/backpacks', query: { brand: brand } })
 }
 
 const filterBySize = (size) => {
@@ -84,7 +82,8 @@ const applyFilters = () => {
   filteredProducts.value = products.value.filter((product) => {
     const matchesBrand = activeCategory.value === 'All' || product.brand === activeCategory.value
     const matchesSize = activeSize.value === 'All' || product.size.includes(activeSize.value)
-    return matchesBrand && matchesSize
+    const isOnSale = !activeSale.value || product.sale !== undefined
+    return matchesBrand && matchesSize && isOnSale
   })
 }
 

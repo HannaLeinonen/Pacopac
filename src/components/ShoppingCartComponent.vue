@@ -17,11 +17,7 @@
                 +
               </button>
               <p>{{ item.quantity }}</p>
-              <button
-                class="increase-decrease-button"
-                @click="decrementItemQuantity(item.id)"
-                :disabled="item.quantity <= 1"
-              >
+              <button class="increase-decrease-button" @click="decrementItemQuantity(item.id)">
                 -
               </button>
             </div>
