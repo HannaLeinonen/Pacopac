@@ -7,17 +7,31 @@
     <!-- New arrivals -->
     <div class="new-arrivals">
       <h1>NEW ARRIVALS</h1>
-      <button>SHOP NOW</button>
+      <button @click="goToBackpacks">SHOP NOW</button>
     </div>
     <!-- End of New arrivals -->
-    <!-- Sale banner 1 -->
-    <div class="sale-banner">
-      <h1 id="sale">SALE</h1>
-      <h1 id="sale">SALE</h1>
-      <h1 id="sale">SALE</h1>
+    <!-- Sale banner -->
+    <div @click="goToBackpacks" class="sale-banner">
+      <div id="slideshow-sale">
+        <div
+          v-for="(slide, index) in img"
+          :key="index"
+          class="slide"
+          :class="{ active: index === currentSlide }"
+          :style="{
+            backgroundImage:
+              'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(' + slide.image + ')',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }"
+        >
+          <h1 id="sale">SALE</h1>
+        </div>
+      </div>
     </div>
 
-    <!-- End of Sale banner 1 -->
+    <!-- End of Sale banner -->
     <!-- Hero Slide -->
     <div class="hero-products">
       <div id="slideshow">
@@ -54,20 +68,30 @@
 
 <!-- Script -->
 <script setup>
-import BrandBanner from '@/components/BrandBanner.vue'
-
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
+import BrandBanner from '@/components/BrandBanner.vue'
 
 /* Auto slide Urban / Nature */
 const slides = ref([
   { image: 'imgs/urban.webp', title: 'Urban' },
+  { image: 'imgs/nature.webp', title: 'Nature' },
+  { image: 'imgs/urban.webp', title: 'Urban' },
   { image: 'imgs/nature.webp', title: 'Nature' }
+])
+
+/* Sale banner imgs */
+const img = ref([
+  { image: '/backpackImg/dbL.webp', title: 'db' },
+  { image: '/backpackImg/adidasXL.webp', title: 'adidas' },
+  { image: '/backpackImg/nikeXL.webp', title: 'nike' },
+  { image: '/backpackImg/fjallravenXL.webp', title: 'fjell' }
 ])
 
 const currentSlide = ref(0)
 
 function nextSlide() {
-  currentSlide.value = (currentSlide.value + 1) % slides.value.length
+  currentSlide.value = (currentSlide.value + 1) % img.value.length
 }
 
 onMounted(() => {
@@ -76,9 +100,13 @@ onMounted(() => {
     clearInterval(interval)
   })
 })
-/* End of Auto slide Urban / Nature */
+const router = useRouter()
+function goToBackpacks() {
+  router.push('/backpacks?category=All')
+}
 </script>
 <!--  End of Script -->
+
 <!-- Style -->
 <style scoped>
 /* Directions
@@ -135,16 +163,20 @@ button:hover {
 /* 3. Sale Banner */
 .sale-banner {
   color: #ff0000;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
+  font-size: 3vh;
   height: 30vh;
   width: 100%;
+  text-align: center;
   margin: 7vh 0 7vh 0;
 }
-
+.sale-banner:hover {
+  cursor: pointer;
+}
+#slideshow-sale {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
 
 /* End of Sale Banner */
 
@@ -170,6 +202,9 @@ button:hover {
   height: 100%;
   transition: opacity 1s ease-in-out;
   opacity: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .slide.active {
@@ -228,18 +263,6 @@ button:hover {
 
 /* Media-queries desktop*/
 @media only screen and (min-width: 992px) {
-  #sale {
-    margin: 100px;
-    transition: ease, 0.7;
-    font-size: 80px;
-  }
-
-
-  #sale:nth-of-type(2),
-  #sale:nth-of-type(3) {
-    display: block;
-  }
-
   .inspo-div::after {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
       url('../imgs/winter-inspo.webp');
@@ -252,6 +275,8 @@ button:hover {
   .inspo-div:hover::before {
     opacity: 0;
   }
+}
+.slide {
 }
 </style>
 <!-- End of Style -->

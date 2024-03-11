@@ -17,7 +17,11 @@
                 +
               </button>
               <p>{{ item.quantity }}</p>
-              <button class="increase-decrease-button" @click="decrementItemQuantity(item.id)">
+              <button
+                class="increase-decrease-button"
+                @click="decrementItemQuantity(item.id)"
+              >
+
                 -
               </button>
             </div>
@@ -30,7 +34,7 @@
         <h4>Shippment added in checkout</h4>
       </div>
       <div class="checkout-button">
-        <button><h3>CHECKOUT</h3></button>
+        <button @click="goToCheckout"><h3>CHECKOUT</h3></button>
       </div>
     </div>
   </div>
@@ -40,9 +44,11 @@
 import { useStore } from '@/Store/store.js'
 import ShoppingBagIcon from './icons/ShoppingBagIcon.vue'
 import CloseMenu from './icons/CloseMenuIcon.vue'
+import { useRouter } from 'vue-router'
 import { ref, computed } from 'vue'
-const cartStore = useStore()
 
+const cartStore = useStore()
+const router = useRouter()
 const isOpen = ref(false)
 const cartItems = computed(() => cartStore.cartItems)
 
@@ -53,6 +59,11 @@ const decrementItemQuantity = cartStore.decrementItemQuantity
 const totalCost = computed(() => cartStore.totalCost)
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value
+}
+
+function goToCheckout() {
+    router.push('/checkout')
+    isOpen.value = false
 }
 </script>
 

@@ -45,6 +45,8 @@ button {
 input {
   border: 1px solid lightgray;
   width: 100%;
+  height: 1.7rem;
+  border-radius: 5px;
 }
 label {
   display: block;

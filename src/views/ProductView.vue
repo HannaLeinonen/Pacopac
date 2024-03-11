@@ -63,7 +63,6 @@ async function fetchData() {
 
 function addToCart(product) {
   cartStore.addToCart(product)
-  console.log(product.brand)
 }
 </script>
 <style scoped>
