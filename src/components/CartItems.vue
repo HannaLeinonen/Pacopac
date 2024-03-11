@@ -1,31 +1,58 @@
+
 <template>
     <div class="cartItems">
         <div class="item">
-            <img class="cardImg" src="/backpackImg/nikeL.webp" /> <!-- Product image {{ item.imgUrl }}-->
+            <img class="cardImg" :src="imgUrl" />
             <div class="itemInfo">
-                <h4>Nike backpack <!-- {{ item.brand }} --></h4>
-                <p>Size: Large<!-- {{ item.size }} --></p>
-                <p>Qty: 1<!-- {{ item.quantity }} --></p>
+                <h4>{{ brand }}</h4>
+                <p>Size: {{ size }}</p>
+                <div class="selectContainer">
+                    <label for="quantity">Qty:</label>
+                    <select id="selectQuantity"       v-model="selectedQuantity">
+                        <option
+                        v-for="quantity in maxQuantity" :key="quantity"
+                        :value="quantity" >{{ quantity }}
+                        </option>
+                    </select>
+                </div>
             </div>
-            <p id="itemPrice">$139</p>
+            <h4 class="totalPrice">${{ totalPrice.toFixed(2) }}</h4>
         </div>
-        <div class="item">
-            <img class="cardImg" src="/backpackImg/fjallravenM.webp" /> <!-- :src"item.imgUrl"-->
-            <div class="itemInfo">
-                <h4>Fjällräven backpack <!-- {{ item.brand }} --></h4>
-                <p>Size: Medium<!-- {{ item.size }} --></p>
-                <p>Qty: 1<!-- {{ item.quantity }} --></p>
-            </div>
-            <p id="itemPrice">$139</p>
-        </div>
-        <div class="itemPriceSum">
-            <h3>SUD TOTAL</h3>
-            <h3>$338</h3>
-        </div>
+
+
     </div>
 </template>
 
+<script>
+export default {
+    props: {
+        id: Number,
+        imgUrl: String,
+        brand: String,
+        size: String,
+        price: Number,
+        quantity: Number
+    },
+    data() {
+        return {
+            selectedQuantity: this.quantity
+        };
+    },
+    computed: {
+        totalPrice() {
+            return this.price * this.selectedQuantity;
+        },
+        maxQuantity() {
+            return Array.from({ length: Math.min(this.quantity + 10, 10) }, (_, index) => index + 1);
+        }
+    }
+}
+</script>
+
 <style>
+.cartItems {
+    margin-top: 1rem;
+}
 .item{
     display: flex;
     background-color: white;
@@ -40,10 +67,13 @@
 }
 .cardImg{
     width: 88px;
+    margin-right: 1rem;
 }
-.itemPriceSum {
-    display: flex;
-    justify-content: space-between;
-    padding-right: 0.3rem;
+.totalPrice {
+    margin: 4rem 0 0 6rem;
+}
+select{
+    margin-left: 0.4rem;
+    cursor: pointer;
 }
 </style>
