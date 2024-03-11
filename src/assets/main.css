@@ -36,3 +36,8 @@ body {
   background-color: var(--peach);
   font-family: 'Koulen', sans-serif;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
