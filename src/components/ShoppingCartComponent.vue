@@ -21,6 +21,7 @@
                 class="increase-decrease-button"
                 @click="decrementItemQuantity(item.id)"
               >
+
                 -
               </button>
             </div>

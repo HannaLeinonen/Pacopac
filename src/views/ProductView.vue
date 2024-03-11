@@ -51,7 +51,6 @@ const product = ref('')
 
 const route = useRoute()
 
-// Replaces the created lifecycle hook
 onMounted(async () => {
   await fetchData()
 })

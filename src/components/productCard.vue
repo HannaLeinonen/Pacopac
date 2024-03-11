@@ -1,6 +1,6 @@
 <template>
-  <div class="product-card" @click="goToProduct()">
-    <img class="card-img" :src="imgUrl" />
+  <div class="product-card">
+    <img class="card-img" :src="imgUrl" @click="goToProduct()" />
     <div class="title">
       <h4>{{ brand }}</h4>
       <p><span style="color: goldenrod">&#9733;</span>{{ rating }}</p>
@@ -10,7 +10,7 @@
 
     <div class="card-text">
       <p>${{ price }}</p>
-      <button>+</button>
+      <button @click="addToCart({ id, imgUrl, brand, rating, size, price })">+</button>
     </div>
     <div class="colors">
       <button style="background-color: rgb(178, 151, 0)"></button>
@@ -21,7 +21,20 @@
   </div>
 </template>
 <script>
+import { useStore } from '@/Store/store.js'
 export default {
+  setup() {
+    const cartStore = useStore()
+
+    function addToCart(product) {
+      cartStore.addToCart(product)
+      console.log(product.brand)
+    }
+    return {
+      addToCart
+    }
+  },
+
   props: {
     id: Number,
     imgUrl: String,
