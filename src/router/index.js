@@ -4,6 +4,7 @@ import BackpacksView from '../views/BackpacksView.vue'
 import PaymentViewVue from '@/views/PaymentView.vue'
 import ProductView from '../views/ProductView.vue'
 import FaqView from '../views/AboutFaqView.vue'
+import ConfirmationView from '@/views/ConfirmationView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/faq',
       name: 'faq',
       component: FaqView
+    },
+    {
+      path: '/Confirmationpage',
+      name: 'confirmationpage',
+      component: ConfirmationView
     }
   ]
 })
