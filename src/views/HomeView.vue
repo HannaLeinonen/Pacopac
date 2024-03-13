@@ -117,7 +117,9 @@ function goToBackpacks() {
 4. Slideshow
 5. Inspo div
  */
-
+main {
+  background-color: #ffefe0;
+}
 /* 1. Text style */
 
 h1 {
@@ -175,7 +177,7 @@ button:hover {
 }
 #slideshow-sale {
   position: relative;
-  overflow: hidden;
+
   height: 100%;
 }
 
@@ -226,6 +228,7 @@ button:hover {
   position: relative;
   height: 40vh;
   color: white;
+
   justify-content: center;
   align-items: center;
   display: flex;
@@ -276,7 +279,15 @@ button:hover {
   .inspo-div:hover::before {
     opacity: 0;
   }
-}
 
+  .hero-products,
+  .inspo-div,
+  .sale-banner {
+    height: 60vh;
+  }
+  .new-arrivals {
+    height: 40vh;
+  }
+}
 </style>
 <!-- End of Style -->
