@@ -1,31 +1,38 @@
 <template>
   <div class="dropdown">
     <ShoppingBagIcon v-show="!isOpen" class="dropdown-toggle" @click="toggleDropdown" />
-    <!-- Show CloseMenu when isOpen is true -->
+
     <CloseMenu v-show="isOpen" class="dropdown-toggle" @click="toggleDropdown" />
     <div class="dropdown-content" :class="{ open: isOpen }">
       <div class="product-wrapper">
         <div class="cart-items">
           <div v-for="item in cartItems" :key="item.id" class="cart-item">
-            <button class="remove-button" @click="removeItem(item.id)">
-              <h3>Remove ✕</h3>
-            </button>
 
-            <h3>{{ item.brand }}</h3>
-            <div class="increase-decrease">
-              <button class="increase-decrease-button" @click="incrementItemQuantity(item.id)">
-                +
-              </button>
-              <p>{{ item.quantity }}</p>
-              <button
-                class="increase-decrease-button"
-                @click="decrementItemQuantity(item.id)"
-              >
+            <img :src="item.imgUrl" alt="Product Image" class="product-image" />
 
-                -
-              </button>
+            <div class="item-details">
+              <h3 class="item-brand">{{ item.brand }}</h3>
+              <p class="item-size">Size: {{ item.size }}</p>
+
+              <div class="increase-decrease">
+                <button class="increase-decrease-button" @click="decrementItemQuantity(item.id)">
+                  -
+                </button>
+                <p>{{ item.quantity }}</p>
+                <button class="increase-decrease-button" @click="incrementItemQuantity(item.id)">
+                  +
+                </button>
+              </div>
             </div>
-            <h3>${{ item.price }}</h3>
+
+            <div class="item-action">
+              <button class="remove-button" @click="removeItem(item.id)">
+                <h3>✕</h3>
+
+              </button>
+
+              <h3>${{ item.price }}</h3>
+            </div>
           </div>
         </div>
       </div>
@@ -68,14 +75,12 @@ function goToCheckout() {
 </script>
 
 <style scoped>
-/* Dropdown */
 .dropdown-content {
   position: fixed;
   top: 100px;
   bottom: 0;
   right: -390px;
   transition: ease-in-out right 0.6s;
-
   background-color: #ffefe0;
   width: 390px;
   height: max-content;
@@ -83,33 +88,56 @@ function goToCheckout() {
   z-index: 1000;
   border-radius: 10px;
 }
+
 .dropdown-content.open {
   position: absolute;
   right: 0;
 }
+
 .dropdown-toggle {
   z-index: 2000;
 }
 
 .dropdown-content {
-  display: show;
+  display: block;
 }
-/* End of Dropdown */
-
-/* Wrappers */
 
 .cart-item {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 20px;
+  align-items: stretch;
+  justify-content: start;
+  flex-direction: row;
+  padding: 15px;
   margin-bottom: 10px;
   margin-top: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 300px;
+  width: 340px;
+  background-color: #fff
 }
-.product-wrapper {
+
+.item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-brand,
+.item-size {
+  display: flex;
+  margin-left: 15px;
+}
+
+.item-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  align-items: flex-end;
+}
+
+.product-wrapper,
+.checkout-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,19 +145,13 @@ function goToCheckout() {
 }
 
 .text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
-.cart-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-.checkout-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .increase-decrease {
   overflow-y: hidden;
   flex-direction: row;
@@ -137,19 +159,20 @@ function goToCheckout() {
   justify-content: center;
   align-items: center;
   height: 39px;
-  width: 109px;
-  margin: 30px;
+  margin-left: 10px;
+  width: 75px;
   border: 1px solid #000;
   border-radius: 10px;
 }
-/* End of Wrappers */
-/* Img */
-img {
-  margin-right: 10px;
-  width: 60px;
+
+.product-image {
+  width: 125px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 10px;
+  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); */
 }
-/* End of Img */
-/* Button */
+
 button {
   background-color: #d9a87e;
   border: none;
@@ -163,6 +186,7 @@ button {
   margin-bottom: 20px;
   font-size: larger;
 }
+
 button:hover {
   background-color: #ffc48d;
 }
@@ -179,15 +203,16 @@ button:hover {
   align-items: center;
   font-size: larger;
 }
+
 .remove-button {
   background-color: transparent;
-  width: 200px;
+  width: 30px;
 }
+
 .remove-button:hover {
   background-color: #ffc48d;
 }
-/* End of button */
-/* Text style */
+
 h3,
 p,
 h4,
@@ -196,6 +221,7 @@ a {
   margin-left: 0;
   padding: 0;
 }
+
 a {
   text-decoration: none;
   color: black;
