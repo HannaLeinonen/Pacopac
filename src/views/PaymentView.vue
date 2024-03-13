@@ -4,16 +4,25 @@ import BreadCrumbs from '@/components/BreadCrumb.vue'
 import CartItems from '@/components/CartItems.vue'
 import CheckoutForm from '@/components/CheckoutForm.vue'
 import { useStore } from '@/Store/store.js'
+import { useRouter } from 'vue-router'
 import { ref, computed, watch } from 'vue'
 
+const router = useRouter()
 const cartStore = useStore()
 const cartItems = computed(() => cartStore.cartItems)
 const totalCost = computed(() => cartStore.totalCost)
+const clearCart = computed(() => cartStore.clearCart)
 const totalCostWithShipping = computed(() => cartStore.totalCost + shippingCost.value)
 const priceSummary = ref(0)
 const shippingCost = ref(10)
 
-
+// Function to clear cart with items and routing user to confirmation page
+function completeOrder() {
+  clearCart
+  cartStore.cartItems = []
+  router.push('/Confirmationpage')
+}
+// Watch for changes when user adds or removes items in checkout and update price ' quantity of items'
 watch(cartItems, (newItems) => {
   priceSummary.value = newItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
 })
@@ -27,6 +36,7 @@ watch(cartItems, (newItems) => {
     <CartItems
       v-for="item in cartItems"
       :key="item.id"
+      :id="item.id"
       :price="item.price"
       :brand="item.brand"
       :imgUrl="item.imgUrl"
@@ -34,41 +44,42 @@ watch(cartItems, (newItems) => {
       :quantity="item.quantity"
       :item="item"
       :priceSummary="priceSummary"
-
     />
     <div class="itemsSum">
       <h3>SUB TOTAL</h3>
       <h3>${{ totalCost.toFixed(2) }}</h3>
     </div>
+
+    <h3>DELIVERY ADDRESS</h3>
     <div class="checkoutForm">
-      <CheckoutForm />
+      <CheckoutForm @goToPayment="goToPaymentAndSummary" />
     </div>
 
-    <div class="paymentMethods">
-      <h3>CHOOSE PAYMENT METHOD</h3>
-      <!-- Payment methods component -->
-      <PaymentMethods />
-    </div>
-
-    <div class="order">
-      <h3>ORDER SUMMARY</h3>
-
-      <div v-for="item in cartItems" :key="item.id" class="products">
-        <p>{{ item.quantity }}x {{ item.brand }}</p>
-        <p>${{ item.price }}</p>
-      </div>
-      <div class="shipping">
-        <p>Shipping</p>
-        <p>${{ shippingCost }}</p>
+    <div v-show="showDiv">
+      <div class="paymentMethods">
+        <h3>CHOOSE PAYMENT METHOD</h3>
+        <!-- Payment methods component -->
+        <PaymentMethods />
       </div>
 
-      <div class="summary">
-        <h3>ORDER TOTAL</h3>
-        <p>
-          {{ totalCostWithShipping.toFixed(2) }}
-        </p>
+      <div class="order">
+        <h3>ORDER SUMMARY</h3>
+
+        <div v-for="item in cartItems" :key="item.id" class="products">
+          <p>{{ item.quantity }}x {{ item.brand }}</p>
+          <p>${{ item.price }}</p>
+        </div>
+        <div class="shipping">
+          <p>Shipping</p>
+          <p>${{ shippingCost }}</p>
+        </div>
+
+        <div class="summary">
+          <h3>ORDER TOTAL</h3>
+          <p>${{ totalCostWithShipping.toFixed(2) }}</p>
+        </div>
+        <button @click="completeOrder">COMPLETE ORDER</button>
       </div>
-      <button @click="completeOrder">COMPLETE ORDER</button>
     </div>
   </div>
 </template>
@@ -79,10 +90,15 @@ export default {
     return {
       breadcrumbs: [
         { label: 'Home', path: '/' }, // home link
-        // { label: '/Path category before', path: '/path' }, //add path before the current path (if there is any)
-
-        { label: '/Checkout', path: '/checkout' } // Add current page
-      ]
+        { label: '/Checkout', path: '/checkout' } // Current page
+      ],
+      showDiv: false
+    }
+  },
+  methods: {
+    // Displaying the rest of checkout and payment page
+    goToPaymentAndSummary() {
+      this.showDiv = true
     }
   }
 }
@@ -104,6 +120,7 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-right: 0.4rem;
+  margin-bottom: 5rem;
 }
 .checkoutForm {
   margin: 0 1rem 0;
