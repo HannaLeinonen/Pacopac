@@ -1,49 +1,90 @@
+<script setup>
+import { useStore } from '@/Store/store.js'
+const cartStore = useStore()
+const incrementItemQuantity = cartStore.incrementItemQuantity
+const decrementItemQuantity = cartStore.decrementItemQuantity
+</script>
+
 <template>
-    <div class="cartItems">
-        <div class="item">
-            <img class="cardImg" src="/backpackImg/nikeL.webp" /> <!-- Product image {{ item.imgUrl }}-->
-            <div class="itemInfo">
-                <h4>Nike backpack <!-- {{ item.brand }} --></h4>
-                <p>Size: Large<!-- {{ item.size }} --></p>
-                <p>Qty: 1<!-- {{ item.quantity }} --></p>
-            </div>
-            <p id="itemPrice">$139</p>
+  <div class="cartItems">
+    <div class="item">
+      <img class="cardImg" :src="imgUrl" />
+      <div class="itemInfo">
+        <h4>{{ brand }}</h4>
+        <p>Size: {{ size }}</p>
+
+        <div class="quantitySelect">
+          <p>Qty:</p>
+          <div class="increase-decrease" >
+            <button  class="increase-decrease-button" @click="decrementItemQuantity(id)">-</button>
+            <p>{{ quantity }}</p>
+            <button class="increase-decrease-button" @click="incrementItemQuantity(id)">+</button>
+          </div>
         </div>
-        <div class="item">
-            <img class="cardImg" src="/backpackImg/fjallravenM.webp" /> <!-- :src"item.imgUrl"-->
-            <div class="itemInfo">
-                <h4>Fjällräven backpack <!-- {{ item.brand }} --></h4>
-                <p>Size: Medium<!-- {{ item.size }} --></p>
-                <p>Qty: 1<!-- {{ item.quantity }} --></p>
-            </div>
-            <p id="itemPrice">$139</p>
-        </div>
-        <div class="itemPriceSum">
-            <h3>SUD TOTAL</h3>
-            <h3>$338</h3>
-        </div>
+      </div>
+      <h4 class="totalPrice">${{ totalPrice.toFixed(2) }}</h4>
     </div>
+  </div>
 </template>
 
+<script>
+export default {
+  props: {
+    id: Number,
+    imgUrl: String,
+    brand: String,
+    size: String,
+    price: Number,
+    quantity: Number
+  },
+  computed: {
+    // Calculating the total price of an item
+    totalPrice() {
+      return this.price * this.quantity
+    }
+  }
+}
+</script>
+
 <style>
-.item{
-    display: flex;
-    background-color: white;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.24);
-    -webkit-box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.24);
-    -moz-box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.24);
+.cartItems {
+  margin-top: 1rem;
+}
+.item {
+  display: flex;
+  background-color: white;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.24);
 }
 .item h4 {
-    margin-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
 }
-.cardImg{
-    width: 88px;
+.cardImg {
+  width: 88px;
+  margin-right: 1rem;
 }
-.itemPriceSum {
+.totalPrice {
+  margin: 4rem 0 0 6rem;
+}
+.quantitySelect {
     display: flex;
-    justify-content: space-between;
-    padding-right: 0.3rem;
+}
+.increase-decrease {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    margin-left: 0.2rem;
+    border: 1px solid lightgray;
+
+}
+.increase-decrease button {
+    border: none;
+    padding: 0.2rem;
+    margin: 0 0.1rem 0 ;
+    background-color: white;
 }
 </style>

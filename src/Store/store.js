@@ -11,7 +11,6 @@ export const useStore = defineStore('cartStore', {
       const existingItem = this.cartItems.find((item) => item.id === product.id)
       if (existingItem) {
         existingItem.quantity += quantity
-        console.log(product.length)
       } else {
         this.cartItems.push({ ...product, quantity })
       }
@@ -43,6 +42,9 @@ export const useStore = defineStore('cartStore', {
       if (cartItems) {
         this.cartItems = JSON.parse(cartItems)
       }
+    },
+    clearCart() {
+        localStorage.removeItem('cartItems')
     }
   },
   getters: {

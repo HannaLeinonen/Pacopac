@@ -7,6 +7,7 @@
       <div class="product-wrapper">
         <div class="cart-items">
           <div v-for="item in cartItems" :key="item.id" class="cart-item">
+
             <img :src="item.imgUrl" alt="Product Image" class="product-image" />
 
             <div class="item-details">
@@ -27,6 +28,7 @@
             <div class="item-action">
               <button class="remove-button" @click="removeItem(item.id)">
                 <h3>✕</h3>
+
               </button>
 
               <h3>${{ item.price }}</h3>
@@ -39,7 +41,7 @@
         <h4>Shippment added in checkout</h4>
       </div>
       <div class="checkout-button">
-        <button><h3>CHECKOUT</h3></button>
+        <button @click="goToCheckout"><h3>CHECKOUT</h3></button>
       </div>
     </div>
   </div>
@@ -49,9 +51,11 @@
 import { useStore } from '@/Store/store.js'
 import ShoppingBagIcon from './icons/ShoppingBagIcon.vue'
 import CloseMenu from './icons/CloseMenuIcon.vue'
+import { useRouter } from 'vue-router'
 import { ref, computed } from 'vue'
-const cartStore = useStore()
 
+const cartStore = useStore()
+const router = useRouter()
 const isOpen = ref(false)
 const cartItems = computed(() => cartStore.cartItems)
 
@@ -62,6 +66,11 @@ const decrementItemQuantity = cartStore.decrementItemQuantity
 const totalCost = computed(() => cartStore.totalCost)
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value
+}
+
+function goToCheckout() {
+    router.push('/checkout')
+    isOpen.value = false
 }
 </script>
 
