@@ -1,5 +1,4 @@
 <script setup>
-
 import PaymentMethods from '@/components/PaymentMethods.vue'
 import BreadCrumbs from '@/components/BreadCrumb.vue'
 import CartItems from '@/components/CartItems.vue'
@@ -7,7 +6,6 @@ import CheckoutForm from '@/components/CheckoutForm.vue'
 import { useStore } from '@/Store/store.js'
 import { useRouter } from 'vue-router'
 import { ref, computed, watch } from 'vue'
-
 
 const router = useRouter()
 const cartStore = useStore()
@@ -20,9 +18,9 @@ const shippingCost = ref(10)
 
 // Function to clear cart with items and routing user to confirmation page
 function completeOrder() {
-    clearCart;
-    cartStore.cartItems = [];
-    router.push('/')
+  clearCart
+  cartStore.cartItems = []
+  router.push('/Confirmationpage')
 }
 // Watch for changes when user adds or removes items in checkout and update price ' quantity of items'
 watch(cartItems, (newItems) => {
@@ -54,7 +52,7 @@ watch(cartItems, (newItems) => {
 
     <h3>DELIVERY ADDRESS</h3>
     <div class="checkoutForm">
-      <CheckoutForm @goToPayment="goToPaymentAndSummary"/>
+      <CheckoutForm @goToPayment="goToPaymentAndSummary" />
     </div>
 
     <div v-show="showDiv">
@@ -100,9 +98,8 @@ export default {
   methods: {
     // Displaying the rest of checkout and payment page
     goToPaymentAndSummary() {
-        this.showDiv = true;
+      this.showDiv = true
     }
-
   }
 }
 </script>
