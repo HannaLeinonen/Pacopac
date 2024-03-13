@@ -108,6 +108,7 @@ watch(
 <style scoped>
 .breadcrumbs {
   margin-left: 1rem;
+  font-family: 'Kulim Park', sans-serif;
 }
 .productCards {
   display: flex;

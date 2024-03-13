@@ -70,7 +70,9 @@ function addToCart(product) {
 <style scoped>
 .breadcrumbs {
   margin-left: 1rem;
+  font-family: 'Kulim Park', sans-serif;
 }
+
 #product-container {
   font-family: 'Roboto Condensed', sans-serif;
   width: 100%;
