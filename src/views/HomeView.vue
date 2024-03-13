@@ -72,6 +72,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import BrandBanner from '@/components/BrandBanner.vue'
 
+
 /* Auto slide Urban / Nature */
 const slides = ref([
   { image: 'imgs/urban.webp', title: 'Urban' },
@@ -278,6 +279,7 @@ button:hover {
   .inspo-div:hover::before {
     opacity: 0;
   }
+
   .hero-products,
   .inspo-div,
   .sale-banner {
