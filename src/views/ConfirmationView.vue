@@ -8,7 +8,7 @@
     <h1>Don´t miss a thing <br />Sign up for our newsletter!</h1>
     <input
       type="text"
-      placeholder="Write ur email here!"
+      placeholder="Write your email here!"
       v-model="email"
       @keyup.enter="showModal"
     />
