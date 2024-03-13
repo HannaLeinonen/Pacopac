@@ -1,5 +1,7 @@
 <template>
-  <p><a href="/">home</a><a href="/backpacks">/Backpacks</a>/{{ product.brand }}</p>
+  <p class="breadcrumbs">
+    <a href="/">home</a><a href="/backpacks">/Backpacks</a>/{{ product.brand }}
+  </p>
 
   <div id="product-container" v-if="product">
     <div id="productImg">
@@ -54,18 +56,21 @@ const route = useRoute()
 onMounted(async () => {
   await fetchData()
 })
-
+/* Fetches product details from JSON-file and uses the product ID obtained from the router parameters to find and set the specific product details to the product ref. */
 async function fetchData() {
   const productId = route.params.productId
   const products = await fetch('/products.json').then((res) => res.json())
   product.value = products.find((p) => p.id === parseInt(productId))
 }
-
+/* Adds product to  */
 function addToCart(product) {
   cartStore.addToCart(product)
 }
 </script>
 <style scoped>
+.breadcrumbs {
+  margin-left: 1rem;
+}
 #product-container {
   font-family: 'Roboto Condensed', sans-serif;
   width: 100%;

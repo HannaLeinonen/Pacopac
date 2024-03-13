@@ -10,6 +10,7 @@
 
     <div class="card-text">
       <p>${{ price }}</p>
+
       <button @click="addToCart({ id, imgUrl, brand, rating, size, price })">+</button>
     </div>
     <div class="colors">
@@ -22,13 +23,14 @@
 </template>
 <script>
 import { useStore } from '@/Store/store.js'
+
 export default {
   setup() {
+    /* Adds product to cart */
     const cartStore = useStore()
 
     function addToCart(product) {
       cartStore.addToCart(product)
-      console.log(product.brand)
     }
     return {
       addToCart
@@ -41,9 +43,11 @@ export default {
     brand: String,
     rating: Number,
     size: String,
-    price: Number
+    price: Number,
+    sale: Number
   },
   methods: {
+    /* Views the product when clicked on */
     goToProduct() {
       if (this.id) {
         this.$router.push({ name: 'product', params: { productId: this.id } })
@@ -53,6 +57,16 @@ export default {
 }
 </script>
 <style scoped>
+.originalPrice {
+  text-decoration: line-through;
+  color: #777; /* Gray color to indicate it's not the current price */
+}
+
+.salePrice {
+  background-color: red;
+  color: white;
+  padding: 0 4px;
+}
 .product-card {
   font-family: 'Roboto Condensed', sans-serif;
   width: 45%;

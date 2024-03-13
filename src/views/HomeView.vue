@@ -276,7 +276,5 @@ button:hover {
     opacity: 0;
   }
 }
-.slide {
-}
 </style>
 <!-- End of Style -->

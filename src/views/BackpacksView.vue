@@ -1,5 +1,5 @@
 <template>
-  <p>
+  <p class="breadcrumbs">
     <a href="/">Home</a>
     /Backpacks
   </p>
@@ -12,7 +12,7 @@
     >
       {{ brand }}
     </button>
-    <button :class="{ active: activeSale }" @click="filterBySale">Sale</button>
+    <button id="saleButton" :class="{ active: activeSale }" @click="filterBySale">Sale</button>
   </div>
   <div class="filterMenu">
     <button
@@ -60,11 +60,16 @@ const fetchProducts = async () => {
   products.value = result
   const brand = route.query.brand
   activeCategory.value = brand || 'All'
+  activeSale.value = route.query.sale === 'true'
   applyFilters()
 }
 const filterBySale = () => {
   activeSale.value = !activeSale.value // Toggle the sale filter status
   applyFilters()
+  router.push({
+    path: '/backpacks',
+    query: { ...route.query, sale: activeSale.value ? 'true' : undefined }
+  })
 }
 
 const filterProducts = (brand) => {
@@ -90,9 +95,10 @@ const applyFilters = () => {
 onMounted(fetchProducts)
 
 watch(
-  () => route.query.brand,
-  (newBrand) => {
-    activeCategory.value = newBrand || 'All'
+  () => route.query,
+  (query) => {
+    activeCategory.value = query.brand || 'All'
+    activeSale.value = query.sale === 'true'
     applyFilters()
   },
   { immediate: true }
@@ -100,10 +106,19 @@ watch(
 </script>
 
 <style scoped>
+.breadcrumbs {
+  margin-left: 1rem;
+}
 .productCards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+#saleButton {
+  background-color: rgb(213, 25, 25);
+  color: white;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  margin-left: 1rem;
 }
 .filterMenu {
   display: flex;
@@ -127,6 +142,7 @@ watch(
 .filterMenu .active {
   background-color: rgb(227, 177, 113);
   font-weight: 600;
+  box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.444);
 }
 @media (min-width: 760px) {
   .filterMenu button {
