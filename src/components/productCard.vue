@@ -9,10 +9,7 @@
     <p id="size">Size: {{ size }}</p>
 
     <div class="card-text">
-      <p id="price" v-if="sale">
-        <span>${{ price }}</span>
-        ${{ sale }}
-      </p>
+      <p id="price" v-if="sale">${{ sale }}</p>
       <p v-else>${{ price }}</p>
       <button @click="addToCart({ id, imgUrl, brand, rating, size, price, sale })">+</button>
     </div>
@@ -130,15 +127,10 @@ export default {
 #price {
   color: white;
   background-color: rgb(174, 0, 0);
-  padding-right: 0.5rem;
+  padding: 0.2rem;
+  border-radius: 6px;
 }
-.card-text span {
-  font-size: 1.5rem;
-  text-decoration: line-through;
-  background-color: white;
-  color: black;
-  padding-right: 0.5rem;
-}
+
 @media (min-width: 760px) {
   .product-card {
     width: 30%;
