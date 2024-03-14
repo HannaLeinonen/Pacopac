@@ -9,9 +9,12 @@
     <p id="size">Size: {{ size }}</p>
 
     <div class="card-text">
-      <p>${{ price }}</p>
-
-      <button @click="addToCart({ id, imgUrl, brand, rating, size, price })">+</button>
+      <p id="price" v-if="sale">
+        <span>${{ price }}</span>
+        ${{ sale }}
+      </p>
+      <p v-else>${{ price }}</p>
+      <button @click="addToCart({ id, imgUrl, brand, rating, size, price, sale })">+</button>
     </div>
     <div class="colors">
       <button style="background-color: rgb(178, 151, 0)"></button>
@@ -57,16 +60,6 @@ export default {
 }
 </script>
 <style scoped>
-.originalPrice {
-  text-decoration: line-through;
-  color: #777; /* Gray color to indicate it's not the current price */
-}
-
-.salePrice {
-  background-color: red;
-  color: white;
-  padding: 0 4px;
-}
 .product-card {
   font-family: 'Roboto Condensed', sans-serif;
   width: 45%;
@@ -133,6 +126,18 @@ export default {
   align-items: center;
   padding-left: 0.5rem;
   font-weight: 500;
+}
+#price {
+  color: white;
+  background-color: rgb(174, 0, 0);
+  padding-right: 0.5rem;
+}
+.card-text span {
+  font-size: 1.5rem;
+  text-decoration: line-through;
+  background-color: white;
+  color: black;
+  padding-right: 0.5rem;
 }
 @media (min-width: 760px) {
   .product-card {

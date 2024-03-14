@@ -1,6 +1,7 @@
 <template>
   <div class="formWrapper">
-    <form @submit.prevent="proceedToPayment"> <!-- On submit and valid form inputs, call proceedToPayment function -->
+    <form @submit.prevent="proceedToPayment">
+      <!-- On submit and valid form inputs, call proceedToPayment function -->
       <div>
         <label for="firstName">First name*</label>
         <input
@@ -75,7 +76,7 @@ export default {
     }
   },
   methods: {
-    // If form is valid, send emit to parent "PaymentView" 
+    // If form is valid, send emit to parent "PaymentView"
     proceedToPayment() {
       if (this.isFormValid()) {
         this.$emit('goToPayment')
@@ -96,6 +97,7 @@ export default {
   width: 95%;
   margin: 2rem 0 2rem 0;
 }
+
 button {
   margin: 2rem 1rem 1rem 1.5rem;
   height: 43px;
