@@ -1,5 +1,7 @@
 <template>
-  <p><a href="/">home</a><a href="/backpacks">/Backpacks</a>/{{ product.brand }}</p>
+  <p class="breadcrumbs">
+    <a href="/">home</a><a href="/backpacks">/Backpacks</a>/{{ product.brand }}
+  </p>
 
   <div id="product-container" v-if="product">
     <div id="productImg">
@@ -13,8 +15,11 @@
         </div>
 
         <h3>{{ product.size }} {{ product.brand }} backpack</h3>
-        <p id="price">${{ product.price }}</p>
-
+        <p id="price" v-if="product.sale">
+          <span style="text-decoration: line-through">${{ product.price }}</span>
+          ${{ product.sale }}
+        </p>
+        <p id="oldPrice" v-else>${{ product.price }}</p>
         <div class="colors">
           <button style="background-color: rgb(178, 151, 0)"></button>
           <button style="background-color: rgb(248, 206, 176)"></button>
@@ -54,18 +59,23 @@ const route = useRoute()
 onMounted(async () => {
   await fetchData()
 })
-
+/* Fetches product details from JSON-file and uses the product ID obtained from the router parameters to find and set the specific product details to the product ref. */
 async function fetchData() {
   const productId = route.params.productId
   const products = await fetch('/products.json').then((res) => res.json())
   product.value = products.find((p) => p.id === parseInt(productId))
 }
-
+/* Adds product to the global cart state.  */
 function addToCart(product) {
   cartStore.addToCart(product)
 }
 </script>
 <style scoped>
+.breadcrumbs {
+  margin-left: 1rem;
+  font-family: 'Kulim Park', sans-serif;
+}
+
 #product-container {
   font-family: 'Roboto Condensed', sans-serif;
   width: 100%;
@@ -87,6 +97,22 @@ h3 {
   float: right;
   font-weight: 600;
   font-size: large;
+}
+#price {
+  color: white;
+  background-color: rgb(174, 0, 0);
+  padding-right: 0.5rem;
+}
+#oldPrice {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+span {
+  font-size: 1.5rem;
+  text-decoration: line-through;
+  background-color: white;
+  color: black;
+  padding-right: 0.5rem;
 }
 #brand-rating {
   display: flex;

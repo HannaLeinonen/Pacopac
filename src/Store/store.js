@@ -30,7 +30,6 @@ export const useStore = defineStore('cartStore', {
       if (cartItem && cartItem.quantity > 1) {
         cartItem.quantity--
       } else {
-        // Optionally remove the item if its quantity is 1 or less
         this.removeItem(itemId)
       }
     },
@@ -44,7 +43,7 @@ export const useStore = defineStore('cartStore', {
       }
     },
     clearCart() {
-        localStorage.removeItem('cartItems')
+      localStorage.removeItem('cartItems')
     }
   },
   getters: {

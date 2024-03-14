@@ -7,7 +7,6 @@
       <div class="product-wrapper">
         <div class="cart-items">
           <div v-for="item in cartItems" :key="item.id" class="cart-item">
-
             <img :src="item.imgUrl" alt="Product Image" class="product-image" />
 
             <div class="item-details">
@@ -28,7 +27,6 @@
             <div class="item-action">
               <button class="remove-button" @click="removeItem(item.id)">
                 <h3>✕</h3>
-
               </button>
 
               <h3>${{ item.price * item.quantity }}</h3>
@@ -51,6 +49,7 @@
 import { useStore } from '@/Store/store.js'
 import ShoppingBagIcon from './icons/ShoppingBagIcon.vue'
 import CloseMenu from './icons/CloseMenuIcon.vue'
+/* Theo was here */
 import { useRouter } from 'vue-router'
 import { ref, computed } from 'vue'
 
@@ -68,8 +67,8 @@ const toggleDropdown = () => {
 }
 
 function goToCheckout() {
-    router.push('/checkout')
-    isOpen.value = false
+  router.push('/checkout')
+  isOpen.value = false
 }
 
 
@@ -114,7 +113,7 @@ function goToCheckout() {
   margin-top: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   width: 340px;
-  background-color: #fff
+  background-color: #fff;
 }
 
 .item-details {
@@ -198,6 +197,7 @@ button:hover {
   border: none;
   margin: 0px;
   border-radius: 10px;
+
   height: 43px;
   width: 50px;
   display: flex;
