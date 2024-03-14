@@ -48,7 +48,10 @@ export const useStore = defineStore('cartStore', {
   },
   getters: {
     totalCost: (state) => {
-      return state.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
+        return state.cartItems.reduce((sum, item) => {
+            const effectivePrice = item.sale ?? item.price;
+            return sum + effectivePrice * item.quantity;
+          }, 0);
     }
   }
 })

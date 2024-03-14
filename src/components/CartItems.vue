@@ -41,7 +41,7 @@ export default {
   computed: {
     // Calculating the total price of an item
     totalPrice() {
-      return this.price * this.quantity || this.sale * this.quantity
+      return (this.sale ?? this.price) * this.quantity
     }
   }
 }
