@@ -1,5 +1,5 @@
 <template>
-  <div class="formWrapper">
+
     <form @submit.prevent="proceedToPayment">
       <!-- On submit and valid form inputs, call proceedToPayment function -->
       <div>
@@ -59,7 +59,6 @@
       </div>
       <button type="submit">PROCEED TO PAYMENT</button>
     </form>
-  </div>
 </template>
 
 <script>
@@ -93,13 +92,15 @@ export default {
 </script>
 
 <style scoped>
-.formWrapper {
-  width: 95%;
-  margin: 2rem 0 2rem 0;
+form {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 button {
-  margin: 2rem 1rem 1rem 1.5rem;
+  margin: 2rem 0 2rem 0;
   height: 43px;
   width: 280px;
   background-color: #d9a87e;
@@ -111,7 +112,7 @@ button {
 }
 input {
   border: 2px solid lightgray;
-  width: 100%;
+  width: 80vw;
   height: 1.7rem;
   border-radius: 5px;
   -webkit-transition: 0.7s;
@@ -125,5 +126,17 @@ label {
   display: block;
   font-size: 1.2rem;
   margin-top: 1rem;
+}
+/* Media-queries tablet and small laptops */
+@media only screen and (min-width: 798px) {
+    input {
+        width: 45vw;
+    }
+}
+/* Media-queries larger desktops */
+@media only screen and (min-width: 1200px) {
+    input {
+        width: 25vw;
+    }
 }
 </style>
