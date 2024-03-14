@@ -35,12 +35,13 @@ export default {
     brand: String,
     size: String,
     price: Number,
+    sale: Number,
     quantity: Number
   },
   computed: {
     // Calculating the total price of an item
     totalPrice() {
-      return this.price * this.quantity
+      return this.price * this.quantity || this.sale * this.quantity
     }
   }
 }

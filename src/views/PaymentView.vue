@@ -38,6 +38,7 @@ watch(cartItems, (newItems) => {
       :key="item.id"
       :id="item.id"
       :price="item.price"
+      :sale="item.sale"
       :brand="item.brand"
       :imgUrl="item.imgUrl"
       :size="item.size"
