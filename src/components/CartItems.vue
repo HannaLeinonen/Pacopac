@@ -15,8 +15,8 @@ const decrementItemQuantity = cartStore.decrementItemQuantity
 
         <div class="quantitySelect">
           <p>Qty:</p>
-          <div class="increase-decrease" >
-            <button  class="increase-decrease-button" @click="decrementItemQuantity(id)">-</button>
+          <div class="increase-decrease">
+            <button class="increase-decrease-button" @click="decrementItemQuantity(id)">-</button>
             <p>{{ quantity }}</p>
             <button class="increase-decrease-button" @click="incrementItemQuantity(id)">+</button>
           </div>
@@ -64,36 +64,35 @@ export default {
   margin-bottom: 0.3rem;
 }
 .itemInfo {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 .itemInfo p {
-    margin-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
 }
 .cardImg {
   width: 88px;
   margin-right: 1rem;
 }
 .totalPrice {
-    align-self: flex-end;
-    width: 70px;
-
+  align-self: flex-end;
+  width: 70px;
 }
 .quantitySelect {
-    display: flex;
+  display: flex;
 }
 .increase-decrease {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: max-content;
-    margin-left: 0.2rem;
-    border: 1px solid lightgray;
-    border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  margin-left: 0.2rem;
+  border: 1px solid lightgray;
+  border-radius: 5px;
 }
 .increase-decrease button {
-    border: none;
-    padding: 0.2rem;
-    margin: 0 0.1rem 0 ;
-    background-color: white;
+  border: none;
+  padding: 0.2rem;
+  margin: 0 0.1rem 0;
+  background-color: white;
 }
 </style>

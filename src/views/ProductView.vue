@@ -101,7 +101,9 @@ h3 {
 #price {
   color: white;
   background-color: rgb(174, 0, 0);
-  padding-right: 0.5rem;
+  padding-right: 0.3rem;
+  display: flex;
+  align-items: center;
 }
 #oldPrice {
   font-size: 1.5rem;
