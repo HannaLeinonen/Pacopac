@@ -33,7 +33,7 @@
 
               </button>
 
-              <h3>${{ item.price }}</h3>
+              <h3>${{ item.price * item.quantity }}</h3>
             </div>
           </div>
         </div>
@@ -65,7 +65,6 @@ const cartItems = computed(() => cartStore.cartItems)
 const removeItem = cartStore.removeItem
 const incrementItemQuantity = cartStore.incrementItemQuantity
 const decrementItemQuantity = cartStore.decrementItemQuantity
-
 const totalCost = computed(() => cartStore.totalCost)
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value
@@ -75,7 +74,10 @@ function goToCheckout() {
   router.push('/checkout')
   isOpen.value = false
 }
+
+
 </script>
+
 
 <style scoped>
 .dropdown-content {

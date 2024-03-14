@@ -62,12 +62,20 @@ export default {
 .item h4 {
   margin-bottom: 0.3rem;
 }
+.itemInfo {
+    flex-grow: 1;
+}
+.itemInfo p {
+    margin-bottom: 0.3rem;
+}
 .cardImg {
   width: 88px;
   margin-right: 1rem;
 }
 .totalPrice {
-  margin: 4rem 0 0 6rem;
+    align-self: flex-end;
+    width: 70px;
+
 }
 .quantitySelect {
     display: flex;
@@ -79,7 +87,7 @@ export default {
     width: max-content;
     margin-left: 0.2rem;
     border: 1px solid lightgray;
-
+    border-radius: 5px;
 }
 .increase-decrease button {
     border: none;

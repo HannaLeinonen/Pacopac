@@ -112,13 +112,26 @@ import KlarnaIcon from './icons/KlarnaIcon.vue';
 @media only screen and (min-width: 1200px) {
     /* Icons */
     #klarna, #swish {
-        margin-left: 10.5rem;
+        margin-left: 50%;
     }
     #visa{
-        margin-left: 9.6rem;
+        margin-left: 50%;
     }
     #mastercard {
         margin-left: 0.3rem;
+    }
+    .paymentContainer {
+        width:25vw;
+        margin: 0 auto;
+    }
+}
+@media only screen and (min-width: 1550px) {
+    /* Icons */
+    #klarna, #swish {
+        margin-left: 65%;
+    }
+    #visa{
+        margin-left: 62%;
     }
 }
 </style>

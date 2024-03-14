@@ -55,9 +55,10 @@ watch(cartItems, (newItems) => {
       <CheckoutForm @goToPayment="goToPaymentAndSummary" />
     </div>
 
-    <div v-show="showDiv">
-      <div class="paymentMethods">
+    <div v-show="showDiv" class="show">
         <h3>CHOOSE PAYMENT METHOD</h3>
+      <div class="paymentMethods">
+
         <!-- Payment methods component -->
         <PaymentMethods />
       </div>
@@ -126,7 +127,7 @@ export default {
   margin: 0 1rem 0;
 }
 
-.paymentMethods h3 {
+.show h3{
   margin: 2rem 0 2rem 0;
 }
 .order {
@@ -184,7 +185,7 @@ button:hover {
 /* Media-queries larger desktops */
 @media only screen and (min-width: 1200px) {
   .paymentMethods {
-    width: 20vw;
+    width: 25vw;
     margin: 0 auto;
   }
   .container,
