@@ -11,25 +11,27 @@
     </div>
     <!-- End of New arrivals -->
     <!-- Sale banner -->
-    <div @click="goToBackpacks" class="sale-banner">
-      <div id="slideshow-sale">
-        <div
-          v-for="(slide, index) in img"
-          :key="index"
-          class="slide"
-          :class="{ active: index === currentSlide }"
-          :style="{
-            backgroundImage:
-              'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(' + slide.image + ')',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }"
-        >
-          <h1 id="sale">SALE</h1>
+    <RouterLink to="/backpacks?brand=All&sale=true">
+      <div class="sale-banner">
+        <div id="slideshow-sale">
+          <div
+            v-for="(slide, index) in img"
+            :key="index"
+            class="slide"
+            :class="{ active: index === currentSlide }"
+            :style="{
+              backgroundImage:
+                'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(' + slide.image + ')',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }"
+          >
+            <h1 id="sale">SALE</h1>
+          </div>
         </div>
       </div>
-    </div>
+    </RouterLink>
 
     <!-- End of Sale banner -->
     <!-- Hero Slide -->
