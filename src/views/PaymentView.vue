@@ -38,6 +38,7 @@ watch(cartItems, (newItems) => {
       :key="item.id"
       :id="item.id"
       :price="item.price"
+      :sale="item.sale"
       :brand="item.brand"
       :imgUrl="item.imgUrl"
       :size="item.size"
@@ -68,7 +69,7 @@ watch(cartItems, (newItems) => {
 
         <div v-for="item in cartItems" :key="item.id" class="products">
           <p>{{ item.quantity }}x {{ item.brand }}</p>
-          <p>${{ item.price }}</p>
+          <p>${{ (item.sale ?? item.price) }}</p>
         </div>
         <div class="shipping">
           <p>Shipping</p>

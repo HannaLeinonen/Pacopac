@@ -29,7 +29,7 @@
                 <h3>✕</h3>
               </button>
 
-              <h3>${{ item.price * item.quantity }}</h3>
+              <h3>${{ (item.sale ?? item.price) * item.quantity }}</h3>
             </div>
           </div>
         </div>
