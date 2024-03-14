@@ -9,8 +9,12 @@
     <p id="size">Size: {{ size }}</p>
 
     <div class="card-text">
-      <p>${{ price }}</p>
-      <button @click="addToCart({ id, imgUrl, brand, rating, size, price })">+</button>
+      <p id="price" v-if="sale">
+        <span>${{ price }}</span>
+        ${{ sale }}
+      </p>
+      <p v-else>${{ price }}</p>
+      <button @click="addToCart({ id, imgUrl, brand, rating, size, price, sale })">+</button>
     </div>
     <div class="colors">
       <button style="background-color: rgb(178, 151, 0)"></button>
@@ -22,13 +26,14 @@
 </template>
 <script>
 import { useStore } from '@/Store/store.js'
+
 export default {
   setup() {
+    /* Adds product to cart */
     const cartStore = useStore()
 
     function addToCart(product) {
       cartStore.addToCart(product)
-      console.log(product.brand)
     }
     return {
       addToCart
@@ -41,9 +46,11 @@ export default {
     brand: String,
     rating: Number,
     size: String,
-    price: Number
+    price: Number,
+    sale: Number
   },
   methods: {
+    /* Views the product when clicked on */
     goToProduct() {
       if (this.id) {
         this.$router.push({ name: 'product', params: { productId: this.id } })
@@ -119,6 +126,18 @@ export default {
   align-items: center;
   padding-left: 0.5rem;
   font-weight: 500;
+}
+#price {
+  color: white;
+  background-color: rgb(174, 0, 0);
+  padding-right: 0.5rem;
+}
+.card-text span {
+  font-size: 1.5rem;
+  text-decoration: line-through;
+  background-color: white;
+  color: black;
+  padding-right: 0.5rem;
 }
 @media (min-width: 760px) {
   .product-card {

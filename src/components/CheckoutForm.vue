@@ -1,4 +1,5 @@
 <template>
+
     <form @submit.prevent="proceedToPayment">
       <!-- On submit and valid form inputs, call proceedToPayment function -->
       <div>
@@ -97,6 +98,7 @@ form {
   align-items: center;
 
 }
+
 button {
   margin: 2rem 0 2rem 0;
   height: 43px;

@@ -43,7 +43,7 @@
           <div class="product-image">FJELLREVEN</div>
         </router-link>
       </div>
-      <router-link to="#" id="sale">
+      <router-link to="/backpacks?brand=All&sale=true" id="sale">
         <div class="sale">
           <div>SALE</div>
         </div>
